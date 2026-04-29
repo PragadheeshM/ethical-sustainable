@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — EcoMarket</title>
+  <meta name="description" content="EcoMarket Admin Dashboard — manage users, orders, products and analytics.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='50' font-size='50'>🌱</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+  <style>
+    body { overflow: hidden; }
+    .sidebar-link {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .65rem 1rem; border-radius: .75rem;
+      font-size: .88rem; font-weight: 500;
+      color: var(--text-2); transition: all .2s;
+    }
+    .sidebar-link:hover { background: rgba(16,185,129,.1); color: var(--emerald); }
+    .sidebar-link.active { background: rgba(16,185,129,.15); color: var(--emerald); font-weight: 600; }
+    .sidebar-link i { width: 1.2rem; text-align: center; }
+    .stat-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 1.25rem; padding: 1rem;
+      box-shadow: var(--shadow-card); transition: all .3s;
+    }
+    @media (min-width: 640px) { .stat-card { padding: 1.5rem; } }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .topbar { background: var(--bg-2); border-bottom: 1px solid var(--border); }
+    .sidebar { background: var(--bg-2); border-right: 1px solid var(--border); }
+    .table-row { border-bottom: 1px solid var(--border); transition: background .15s; }
+    .table-row:hover { background: rgba(16,185,129,.04); }
+    .badge-status-active   { background: rgba(16,185,129,.15); color: var(--emerald); padding: .2rem .7rem; border-radius: 99px; font-size: .75rem; font-weight: 600; }
+    .badge-status-pending  { background: rgba(245,158,11,.12); color: #d97706; padding: .2rem .7rem; border-radius: 99px; font-size: .75rem; font-weight: 600; }
+    .badge-status-inactive { background: rgba(239,68,68,.1); color: #dc2626; padding: .2rem .7rem; border-radius: 99px; font-size: .75rem; font-weight: 600; }
+    .progress-bar { height: 6px; border-radius: 99px; background: var(--bg-3); overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--emerald), var(--teal)); transition: width 1s ease; }
+  </style>
+</head>
+<body class="transition-colors duration-300">
+
+<div class="flex h-screen overflow-hidden">
+  <!-- Sidebar Overlay (mobile) -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+
+  <!-- ── SIDEBAR ── -->
+  <aside id="adminSidebar" class="sidebar w-64 flex flex-col fixed inset-y-0 start-0 z-50 hidden lg:flex overflow-y-auto">
+    <!-- Logo -->
+    <div class="p-5 border-b" style="border-color:var(--border)">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
+          <i class="fas fa-leaf text-white text-sm"></i>
+        </div>
+        <span class="text-lg font-bold" style="font-family:'Fraunces',serif;color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
+      </a>
+      <div class="mt-3 flex items-center gap-2">
+        <span class="text-xs px-2 py-1 rounded-full font-semibold" style="background:rgba(239,68,68,.12);color:#dc2626">
+          <i class="fas fa-shield-alt me-1"></i>Admin
+        </span>
+      </div>
+    </div>
+
+    <!-- Nav Links -->
+    <nav class="flex-1 p-4 space-y-1">
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 px-3">Main Menu</div>
+      <a href="admin-dashboard.html" class="sidebar-link active"><i class="fas fa-chart-pie"></i> Overview</a>
+      <a href="#" class="sidebar-link"><i class="fas fa-users"></i> User Management</a>
+      <a href="#" class="sidebar-link"><i class="fas fa-shopping-cart"></i> Orders & Sales</a>
+      <a href="shop.html" class="sidebar-link"><i class="fas fa-box"></i> Products</a>
+      
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 mt-6 px-3">System</div>
+      <a href="#" class="sidebar-link"><i class="fas fa-bullhorn"></i> Campaigns</a>
+      <a href="blog.html" class="sidebar-link"><i class="fas fa-newspaper"></i> Blog Posts</a>
+      <a href="#" class="sidebar-link"><i class="fas fa-cog"></i> Settings</a>
+    </nav>
+
+
+    <!-- Admin Profile -->
+    <div class="p-4 border-t" style="border-color:var(--border)">
+      <div class="flex items-center gap-3">
+        <img src="https://ui-avatars.com/api/?name=Admin+User&background=dc2626&color=fff" alt="Admin" class="w-10 h-10 rounded-full">
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-semibold truncate" style="color:var(--text)">Admin User</div>
+          <div class="text-xs truncate" style="color:var(--text-3)">admin@ecomarket.com</div>
+        </div>
+        <a href="login.html" class="text-sm" style="color:var(--text-3)" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="flex-1 flex flex-col overflow-hidden lg:ms-64">
+
+    <!-- ── TOPBAR ── -->
+    <header class="topbar flex items-center justify-between px-3 sm:px-6 py-4 sticky top-0 z-30">
+      <div class="flex items-center gap-2 sm:gap-4">
+        <button id="sidebarToggleBtn" class="lg:hidden p-2 rounded-lg" style="color:var(--text-2);background:var(--bg-3)">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+        <div>
+          <h1 class="text-[11px] sm:text-lg font-bold" style="color:var(--text)">Admin</h1>
+          <p class="text-[9px] sm:text-xs" style="color:var(--text-3)">Welcome</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 sm:gap-3">
+        <!-- Search -->
+        <div class="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl text-sm" style="background:var(--bg-3);border:1px solid var(--border)">
+          <i class="fas fa-search text-xs" style="color:var(--text-3)"></i>
+          <input type="text" placeholder="Search..." class="bg-transparent outline-none w-36 text-sm" style="color:var(--text)">
+        </div>
+        <!-- Notification -->
+        <button class="relative p-2 rounded-xl" style="background:var(--bg-3);color:var(--text-2)">
+          <i class="fas fa-bell text-sm sm:text-base"></i>
+          <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+        </button>
+        <!-- RTL -->
+        <button id="rtlToggle" class="flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-xs font-bold" style="background:var(--bg-3);color:var(--text-2)" title="Toggle RTL">
+          <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
+        </button>
+        <!-- Dark Mode -->
+        <button id="darkModeToggle" class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" style="background:var(--bg-3);color:var(--text-2)" title="Toggle Dark Mode">
+          <i class="fas fa-moon text-sm sm:text-base"></i>
+        </button>
+        <!-- Avatar -->
+        <img src="https://ui-avatars.com/api/?name=Admin+User&background=dc2626&color=fff" alt="Admin" class="w-9 h-9 rounded-full cursor-pointer">
+      </div>
+    </header>
+
+    <!-- ── DASHBOARD BODY ── -->
+    <main class="flex-1 overflow-y-auto p-4 sm:p-6" style="background:var(--bg)">
+
+      <!-- ── STAT CARDS ── -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <!-- Total Users -->
+        <div class="stat-card">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl icon-green flex items-center justify-center text-lg">
+              <i class="fas fa-users"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full" style="background:rgba(16,185,129,.12);color:var(--emerald)">+12%</span>
+          </div>
+          <div class="text-2xl font-bold mb-1" style="color:var(--text)">2,543</div>
+          <div class="text-xs" style="color:var(--text-3)">Total Users</div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:75%"></div></div>
+        </div>
+        <!-- Orders -->
+        <div class="stat-card">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl icon-blue flex items-center justify-center text-lg">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full" style="background:rgba(59,130,246,.12);color:#2563eb">+8%</span>
+          </div>
+          <div class="text-2xl font-bold mb-1" style="color:var(--text)">1,234</div>
+          <div class="text-xs" style="color:var(--text-3)">Total Orders</div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:60%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div>
+        </div>
+        <!-- Revenue -->
+        <div class="stat-card">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl icon-purple flex items-center justify-center text-lg">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full" style="background:rgba(139,92,246,.12);color:#7c3aed">+15%</span>
+          </div>
+          <div class="text-2xl font-bold mb-1" style="color:var(--text)">$45,678</div>
+          <div class="text-xs" style="color:var(--text-3)">Total Revenue</div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:85%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div>
+        </div>
+        <!-- Products -->
+        <div class="stat-card">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl icon-amber flex items-center justify-center text-lg">
+              <i class="fas fa-box"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full" style="background:rgba(245,158,11,.12);color:#d97706">+5%</span>
+          </div>
+          <div class="text-2xl font-bold mb-1" style="color:var(--text)">486</div>
+          <div class="text-xs" style="color:var(--text-3)">Active Products</div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:50%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
+        </div>
+      </div>
+
+      <!-- ── CHARTS ROW ── -->
+      <div class="grid lg:grid-cols-3 gap-6 mb-6">
+        <!-- Revenue Line Chart -->
+        <div class="stat-card lg:col-span-2">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="font-bold" style="color:var(--text)">Revenue Overview</h3>
+              <p class="text-xs mt-1" style="color:var(--text-3)">Monthly revenue trend</p>
+            </div>
+            <select class="text-xs px-3 py-1.5 rounded-lg outline-none" style="background:var(--bg-3);color:var(--text-2);border:1px solid var(--border)">
+              <option>2026</option><option>2025</option>
+            </select>
+          </div>
+          <div class="w-full h-[220px]">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+        <!-- Donut Chart -->
+        <div class="stat-card">
+          <div class="mb-4">
+            <h3 class="font-bold" style="color:var(--text)">Category Sales</h3>
+            <p class="text-xs mt-1" style="color:var(--text-3)">Product category breakdown</p>
+          </div>
+          <div class="w-full h-[180px] flex items-center justify-center">
+            <canvas id="categoryChart"></canvas>
+          </div>
+          <div class="mt-4 space-y-2">
+            <div class="flex items-center justify-between text-xs" style="color:var(--text-2)"><span><span class="inline-block w-2 h-2 rounded-full bg-green-500 me-2"></span>Eco-Friendly</span><span class="font-bold">42%</span></div>
+            <div class="flex items-center justify-between text-xs" style="color:var(--text-2)"><span><span class="inline-block w-2 h-2 rounded-full bg-teal-500 me-2"></span>Recycled</span><span class="font-bold">28%</span></div>
+            <div class="flex items-center justify-between text-xs" style="color:var(--text-2)"><span><span class="inline-block w-2 h-2 rounded-full bg-amber-400 me-2"></span>Fair Trade</span><span class="font-bold">30%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── USERS TABLE + RECENT ORDERS ── -->
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Users Table -->
+        <div class="stat-card overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold" style="color:var(--text)">Recent Users</h3>
+            <button class="text-xs btn-primary py-1.5 px-3">+ Add User</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left text-xs uppercase tracking-wider" style="color:var(--text-3)">
+                  <th class="pb-3 pe-4">User</th>
+                  <th class="pb-3 pe-4">Role</th>
+                  <th class="pb-3 pe-4">Status</th>
+                  <th class="pb-3">Joined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row">
+                  <td class="py-3 pe-4">
+                    <div class="flex items-center gap-2">
+                      <img src="https://ui-avatars.com/api/?name=Sarah+J&background=10b981&color=fff&size=32" class="w-8 h-8 rounded-full" alt="Sarah">
+                      <span class="font-medium" style="color:var(--text)">Sarah Johnson</span>
+                    </div>
+                  </td>
+                  <td class="py-3 pe-4 text-xs" style="color:var(--text-3)">Customer</td>
+                  <td class="py-3 pe-4"><span class="badge-status-active">Active</span></td>
+                  <td class="py-3 text-xs" style="color:var(--text-3)">Jan 2026</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="py-3 pe-4">
+                    <div class="flex items-center gap-2">
+                      <img src="https://ui-avatars.com/api/?name=Michael+C&background=14b8a6&color=fff&size=32" class="w-8 h-8 rounded-full" alt="Michael">
+                      <span class="font-medium" style="color:var(--text)">Michael Chen</span>
+                    </div>
+                  </td>
+                  <td class="py-3 pe-4 text-xs" style="color:var(--text-3)">Vendor</td>
+                  <td class="py-3 pe-4"><span class="badge-status-active">Active</span></td>
+                  <td class="py-3 text-xs" style="color:var(--text-3)">Feb 2026</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="py-3 pe-4">
+                    <div class="flex items-center gap-2">
+                      <img src="https://ui-avatars.com/api/?name=Emma+W&background=059669&color=fff&size=32" class="w-8 h-8 rounded-full" alt="Emma">
+                      <span class="font-medium" style="color:var(--text)">Emma Williams</span>
+                    </div>
+                  </td>
+                  <td class="py-3 pe-4 text-xs" style="color:var(--text-3)">Customer</td>
+                  <td class="py-3 pe-4"><span class="badge-status-pending">Pending</span></td>
+                  <td class="py-3 text-xs" style="color:var(--text-3)">Mar 2026</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="py-3 pe-4">
+                    <div class="flex items-center gap-2">
+                      <img src="https://ui-avatars.com/api/?name=David+E&background=6366f1&color=fff&size=32" class="w-8 h-8 rounded-full" alt="David">
+                      <span class="font-medium" style="color:var(--text)">David Eco</span>
+                    </div>
+                  </td>
+                  <td class="py-3 pe-4 text-xs" style="color:var(--text-3)">Vendor</td>
+                  <td class="py-3 pe-4"><span class="badge-status-inactive">Inactive</span></td>
+                  <td class="py-3 text-xs" style="color:var(--text-3)">Apr 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="stat-card">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold" style="color:var(--text)">Recent Orders</h3>
+            <a href="#" class="text-xs" style="color:var(--emerald)">View All →</a>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 p-3 rounded-xl" style="background:var(--bg-3)">
+              <div class="w-10 h-10 rounded-xl icon-green flex items-center justify-center flex-shrink-0"><i class="fas fa-shopping-bag text-sm"></i></div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-semibold truncate" style="color:var(--text)">Order #1234</div>
+                <div class="text-xs truncate" style="color:var(--text-3)">Organic Cotton Tote Bag</div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold" style="color:var(--emerald)">$24.99</div>
+                <span class="badge-status-active" style="font-size:.65rem">Done</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl" style="background:var(--bg-3)">
+              <div class="w-10 h-10 rounded-xl icon-blue flex items-center justify-center flex-shrink-0"><i class="fas fa-shopping-bag text-sm"></i></div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-semibold truncate" style="color:var(--text)">Order #1235</div>
+                <div class="text-xs truncate" style="color:var(--text-3)">Bamboo Cutlery Set</div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold" style="color:var(--emerald)">$19.99</div>
+                <span class="badge-status-pending" style="font-size:.65rem">Processing</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl" style="background:var(--bg-3)">
+              <div class="w-10 h-10 rounded-xl icon-purple flex items-center justify-center flex-shrink-0"><i class="fas fa-shopping-bag text-sm"></i></div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-semibold truncate" style="color:var(--text)">Order #1236</div>
+                <div class="text-xs truncate" style="color:var(--text-3)">Recycled Glass Bottle Set</div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold" style="color:var(--emerald)">$34.99</div>
+                <span class="badge-status-active" style="font-size:.65rem">Shipped</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl" style="background:var(--bg-3)">
+              <div class="w-10 h-10 rounded-xl icon-amber flex items-center justify-center flex-shrink-0"><i class="fas fa-shopping-bag text-sm"></i></div>
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-semibold truncate" style="color:var(--text)">Order #1237</div>
+                <div class="text-xs truncate" style="color:var(--text-3)">Natural Skincare Kit</div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-bold" style="color:var(--emerald)">$49.99</div>
+                <span class="badge-status-pending" style="font-size:.65rem">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // Revenue Line Chart
+  const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+  new Chart(revenueCtx, {
+    type: 'line',
+    data: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'],
+      datasets: [{
+        label: 'Revenue',
+        data: [12000,19000,15000,25000,22000,30000,28000,35000],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16,185,129,0.08)',
+        tension: 0.4, fill: true,
+        pointBackgroundColor: '#10b981',
+        pointRadius: 4, pointHoverRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: 'rgba(16,185,129,0.06)' }, ticks: { color: '#6b7280', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(16,185,129,0.06)' }, ticks: { color: '#6b7280', font: { size: 11 }, callback: v => '$'+v/1000+'k' } }
+      }
+    }
+  });
+
+  // Category Donut Chart
+  const catCtx = document.getElementById('categoryChart').getContext('2d');
+  new Chart(catCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Eco-Friendly','Recycled','Fair Trade'],
+      datasets: [{ data: [42,28,30], backgroundColor: ['#10b981','#14b8a6','#f59e0b'], borderWidth: 0, hoverOffset: 6 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '70%',
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // Mobile sidebar
+  const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+  const adminSidebar = document.getElementById('adminSidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  function openSidebar() { adminSidebar.classList.remove('hidden'); adminSidebar.classList.add('flex'); sidebarOverlay.classList.remove('hidden'); document.body.style.overflow='hidden'; }
+  function closeSidebar() { adminSidebar.classList.add('hidden'); adminSidebar.classList.remove('flex'); sidebarOverlay.classList.add('hidden'); document.body.style.overflow=''; }
+
+  sidebarToggleBtn?.addEventListener('click', () => adminSidebar.classList.contains('hidden') ? openSidebar() : closeSidebar());
+  sidebarOverlay?.addEventListener('click', closeSidebar);
+  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { adminSidebar.classList.remove('hidden'); adminSidebar.classList.add('flex'); sidebarOverlay.classList.add('hidden'); document.body.style.overflow=''; } else { closeSidebar(); } });
+</script>
+</body>
+</html>
+
+
+

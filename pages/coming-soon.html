@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - EcoMarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🌱</text>
+</svg>">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+</head>
+<body class="bg-gradient-to-br from-green-500 to-teal-600 min-h-screen flex items-center justify-center p-4">
+
+    <div class="text-center max-w-3xl text-white">
+        <!-- Logo -->
+        <div class="mb-8">
+            <i class="fas fa-leaf text-6xl mb-4"></i>
+            <h1 class="text-4xl font-bold">EcoMarket</h1>
+        </div>
+
+        <h2 class="text-5xl font-bold mb-6">Something Amazing is Growing</h2>
+        <p class="text-xl mb-12 opacity-90">We're working hard to bring you a revolutionary sustainable marketplace. Stay tuned!</p>
+
+        <!-- Countdown Timer -->
+        <div class="grid grid-cols-4 gap-4 mb-12 max-w-2xl mx-auto">
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-6">
+                <div class="text-4xl font-bold mb-2" id="days">00</div>
+                <div class="text-sm opacity-80">Days</div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-6">
+                <div class="text-4xl font-bold mb-2" id="hours">00</div>
+                <div class="text-sm opacity-80">Hours</div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-6">
+                <div class="text-4xl font-bold mb-2" id="minutes">00</div>
+                <div class="text-sm opacity-80">Minutes</div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-md rounded-lg p-6">
+                <div class="text-4xl font-bold mb-2" id="seconds">00</div>
+                <div class="text-sm opacity-80">Seconds</div>
+            </div>
+        </div>
+
+        <!-- Email Subscription -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 max-w-xl mx-auto">
+            <h3 class="text-2xl font-semibold mb-4">Be the First to Know</h3>
+            <p class="mb-6 opacity-90">Subscribe to get notified when we launch</p>
+            <form class="flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Enter your email" required class="flex-1 px-6 py-4 rounded-full bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-white">
+                <button type="submit" class="px-8 py-4 bg-white text-green-600 rounded-full hover:shadow-xl transition font-semibold">
+                    Notify Me
+                </button>
+            </form>
+        </div>
+
+        <!-- Social Links -->
+        <div class="mt-12">
+            <p class="mb-4 opacity-80">Follow our journey</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 30); // 30 days from now
+            
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

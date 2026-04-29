@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - EcoMarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🌱</text>
+</svg>">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } }
+        }
+    </script>
+</head>
+
+<body class="transition-colors duration-300"> <!-- NAVBAR -->
+    <!-- ── NAVBAR ── -->
+    <nav class="main-navbar">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
+                        <i class="fas fa-leaf text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span
+                            style="color:var(--emerald)">Market</span></span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden xl:flex items-center gap-1">
+                    <div class="dropdown relative">
+                        <button class="dropdown-trigger nav-link flex items-center gap-1">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
+                            <a href="index.html"
+                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
+                                style="color:var(--text-2)"><i class="fas fa-home me-2"
+                                    style="color:var(--emerald)"></i>Home 1</a>
+                            <a href="index2.html"
+                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
+                                style="color:var(--text-2)"><i class="fas fa-home me-2"
+                                    style="color:var(--emerald)"></i>Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <div class="dropdown relative">
+                        <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i
+                                class="fas fa-chevron-down text-xs"></i></button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
+                            <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)"><i
+                                    class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
+                            <a href="admin-dashboard.html" class="block px-4 py-3 text-sm"
+                                style="color:var(--text-2)"><i class="fas fa-shield-alt me-2"
+                                    style="color:var(--teal)"></i>Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Actions & Hamburger -->
+                <div class="flex items-center gap-1.5 sm:gap-3">
+                  <!-- Utilities (Always visible) -->
+                  <button id="rtlToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-[10px] font-bold border" style="border-color:var(--glass-border)" title="Toggle RTL">
+                    <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
+                  </button>
+                  <button id="darkModeToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                  </button>
+
+                  <!-- Auth (Tablet & Desktop) -->
+                  <div class="hidden md:flex items-center gap-2">
+                    <a href="login.html" class="nav-link text-sm px-4">Login</a>
+                    <a href="register.html" class="btn-primary">Sign Up</a>
+                  </div>
+
+                  <!-- Hamburger Button -->
+                  <button id="mobileMenuBtn" class="xl:hidden nav-link p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                  </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu xl:hidden">
+                <div class="py-4 px-2 space-y-1">
+                    <a href="index.html">Home 1</a>
+                    <a href="index2.html">Home 2</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="contact.html">Contact</a>
+                    <div class="pt-3 mt-3 border-t" style="border-color:var(--border)">
+                        <a href="dashboard.html"><i class="fas fa-user me-2" style="color:var(--emerald)"></i>User
+                            Dashboard</a>
+                        <a href="admin-dashboard.html"><i class="fas fa-shield-alt me-2"
+                                style="color:var(--teal)"></i>Admin Dashboard</a>
+                        <div class="grid grid-cols-2 gap-2 mt-3 md:hidden">
+                            <a href="login.html" class="py-2.5 rounded-lg text-center text-sm font-bold border" style="border-color:var(--border); color:var(--text)">Login</a>
+                            <a href="register.html" class="btn-primary py-2.5 text-center flex items-center justify-center">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <span class="section-label mb-6 animate-fade-in-up"><i class="fas fa-leaf"></i> Our Foundation</span>
+            <h1 class="text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up delay-1">Our Mission & Vision</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto animate-fade-in-up delay-2">
+                We're on a journey to redefine commerce, putting the planet and people at the heart of every transaction.
+            </p>
+        </div>
+        <!-- Decorative background circles -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="py-24 bg-white dark:bg-gray-900 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Visual Side -->
+                <div class="relative animate-slide-left">
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80" alt="Sustainable Mission" class="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+                        <!-- Overlay text -->
+                        <div class="absolute bottom-10 left-10 right-10">
+                           <div class="flex items-center gap-4 mb-4">
+                              <div class="w-12 h-12 rounded-full bg-emerald flex items-center justify-center text-white shadow-lg shadow-emerald/30">
+                                 <i class="fas fa-check"></i>
+                              </div>
+                              <span class="text-white font-bold text-lg">Trusted by 10k+ Conscious Shoppers</span>
+                           </div>
+                           <p class="text-white/80 text-sm">Every action we take is measured by its impact on the environment and society.</p>
+                        </div>
+                    </div>
+                    <!-- Decorative back frame (Offset to bottom-right for a more stable look) -->
+                    <div class="absolute top-8 left-8 w-full h-full bg-emerald/10 rounded-[2.5rem] -z-10"></div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="space-y-10 animate-slide-right">
+                    <!-- Mission Card -->
+                    <div class="group relative p-10 glass-card hover:bg-white dark:hover:bg-gray-800 transition-all duration-500 border-l-4 border-l-emerald">
+                        <div class="absolute top-6 right-10 text-8xl font-bold opacity-5 text-emerald group-hover:opacity-10 transition-opacity" style="font-family:'Fraunces', serif">01</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 rounded-2xl bg-emerald/10 flex items-center justify-center mb-6 group-hover:bg-emerald group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-bullseye text-2xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                To make sustainable living accessible and affordable for everyone by connecting conscious consumers with ethical businesses and products that protect our planet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vision Card -->
+                    <div class="group relative p-10 glass-card hover:bg-white dark:hover:bg-gray-800 transition-all duration-500 border-l-4 border-l-teal">
+                        <div class="absolute top-6 right-10 text-8xl font-bold opacity-5 text-teal group-hover:opacity-10 transition-opacity" style="font-family:'Fraunces', serif">02</div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 rounded-2xl bg-teal/10 flex items-center justify-center mb-6 group-hover:bg-teal group-hover:text-white transition-all duration-300">
+                                <i class="fas fa-eye text-2xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                A world where every purchase contributes to environmental preservation, social justice, and economic fairness for all communities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPANY STORY -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=500&fit=crop"
+                        alt="Our Story" class="rounded-xl shadow-xl">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Our Story</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 text-lg">Founded in 2020, EcoMarket began with a
+                        simple idea: shopping should be a force for good. Our founders, passionate environmentalists and
+                        tech entrepreneurs, saw an opportunity to revolutionize e-commerce.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 text-lg">We started as a small marketplace
+                        connecting local artisans who used sustainable materials with environmentally conscious buyers.
+                        Today, we've grown into a global platform serving thousands of customers worldwide.</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg">Despite our growth, our core values remain
+                        unchanged: transparency, sustainability, and fair trade practices in everything we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM MEMBERS -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Meet Our Team</h2>
+                <p class="text-gray-600 dark:text-gray-400">The passionate people behind EcoMarket</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center card-hover">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&crop=faces"
+                        alt="Emily Green" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">Emily Green</h3>
+                    <p class="text-green-600 mb-3">CEO & Co-Founder</p>
+                    <p class="text-gray-600 dark:text-gray-400">Environmental scientist turned entrepreneur with 15
+                        years of sustainability experience.</p>
+                </div>
+
+                <div class="text-center card-hover">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=faces"
+                        alt="David Eco" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">David Eco</h3>
+                    <p class="text-teal-600 mb-3">CTO & Co-Founder</p>
+                    <p class="text-gray-600 dark:text-gray-400">Tech innovator focused on building scalable solutions
+                        for sustainable commerce.</p>
+                </div>
+
+                <div class="text-center card-hover">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=faces"
+                        alt="Sophie Earth" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">Sophie Earth</h3>
+                    <p class="text-green-600 mb-3">Head of Sustainability</p>
+                    <p class="text-gray-600 dark:text-gray-400">Certified B-Corp consultant ensuring our practices meet
+                        the highest standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Journey</h2>
+                <p class="text-gray-600 dark:text-gray-400">Key milestones in our growth</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="relative space-y-10 before:absolute before:left-[calc(5rem+1rem+0.75rem)] md:before:left-[calc(6rem+1.5rem+0.75rem)] before:top-2 before:bottom-2 before:w-0.5 before:bg-green-500/80 before:z-0">
+                    <div
+                        class="grid grid-cols-[5rem_1.5rem_1fr] md:grid-cols-[6rem_1.5rem_1fr] gap-4 md:gap-6 items-start">
+                        <div class="text-end pt-0.5">
+                            <span class="font-bold text-green-600">2020</span>
+                        </div>
+                        <div class="relative flex justify-center pt-1">
+                            <span
+                                class="relative z-10 w-4 h-4 bg-green-500 rounded-full border-4 border-gray-50 dark:border-gray-800"></span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Company Founded</h3>
+                            <p class="text-gray-600 dark:text-gray-400">EcoMarket launched with 50 sustainable vendors
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-[5rem_1.5rem_1fr] md:grid-cols-[6rem_1.5rem_1fr] gap-4 md:gap-6 items-start">
+                        <div class="text-end pt-0.5">
+                            <span class="font-bold text-green-600">2021</span>
+                        </div>
+                        <div class="relative flex justify-center pt-1">
+                            <span
+                                class="relative z-10 w-4 h-4 bg-green-500 rounded-full border-4 border-gray-50 dark:border-gray-800"></span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">10,000 Customers</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Reached first major customer milestone</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-[5rem_1.5rem_1fr] md:grid-cols-[6rem_1.5rem_1fr] gap-4 md:gap-6 items-start">
+                        <div class="text-end pt-0.5">
+                            <span class="font-bold text-green-600">2023</span>
+                        </div>
+                        <div class="relative flex justify-center pt-1">
+                            <span
+                                class="relative z-10 w-4 h-4 bg-green-500 rounded-full border-4 border-gray-50 dark:border-gray-800"></span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">B-Corp Certification</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Achieved certified B-Corporation status</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-[5rem_1.5rem_1fr] md:grid-cols-[6rem_1.5rem_1fr] gap-4 md:gap-6 items-start">
+                        <div class="text-end pt-0.5">
+                            <span class="font-bold text-green-600">2026</span>
+                        </div>
+                        <div class="relative flex justify-center pt-1">
+                            <span
+                                class="relative z-10 w-4 h-4 bg-green-500 rounded-full border-4 border-gray-50 dark:border-gray-800"></span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Global Expansion</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Now serving customers in 50+ countries worldwide
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Certifications & Achievements</h2>
+                <p class="text-gray-600 dark:text-gray-400">Recognized for our commitment to sustainability</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                    <i class="fas fa-certificate text-5xl text-green-600 mb-4"></i>
+                    <h3 class="font-semibold">B-Corp Certified</h3>
+                </div>
+                <div class="text-center p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                    <i class="fas fa-award text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold">Fair Trade Partner</h3>
+                </div>
+                <div class="text-center p-6 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl">
+                    <i class="fas fa-trophy text-5xl text-yellow-600 mb-4"></i>
+                    <h3 class="font-semibold">Carbon Neutral</h3>
+                </div>
+                <div class="text-center p-6 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                    <i class="fas fa-medal text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="font-semibold">Green Business Award</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">What Partners Say</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="testimonial-card">
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"Working with EcoMarket has transformed our
+                        business. Their commitment to sustainability is genuine and impactful."</p>
+                    <div class="flex items-center">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=10b981&color=fff" alt="User"
+                            class="w-12 h-12 rounded-full me-4">
+                        <div>
+                            <div class="font-semibold">John Doe</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Vendor Partner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"The transparency and ethics of this platform are
+                        unmatched. Proud to be part of their community."</p>
+                    <div class="flex items-center">
+                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=14b8a6&color=fff" alt="User"
+                            class="w-12 h-12 rounded-full me-4">
+                        <div>
+                            <div class="font-semibold">Jane Smith</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Supplier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer style="background:var(--forest);color:#fff" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
+                            <i class="fas fa-leaf text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span
+                                style="color:var(--emerald)">Market</span></span>
+                    </a>
+
+                    <p class="text-sm mb-5" style="color:rgba(255,255,255,.6)">Your trusted marketplace for ethical and
+                        sustainable products — making the world better, one purchase at a time.</p>
+                    <div class="flex gap-3">
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-instagram text-sm"></i></a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-linkedin-in text-sm"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-5 text-white">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">About Us</a></li>
+                        <li><a href="services.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Services</a></li>
+                        <li><a href="shop.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Shop</a></li>
+                        <li><a href="blog.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Blog</a></li>
+                        <li><a href="contact.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-5 text-white">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">FAQ</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Shipping Info</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Returns</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-5 text-white">Newsletter</h4>
+                    <p class="text-sm mb-4" style="color:rgba(255,255,255,.6)">Subscribe for new products and eco-tips.
+                    </p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email address"
+                            class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500"
+                            style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
+                        <button type="submit" class="btn-primary w-full justify-center">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
+                <p class="text-center text-sm" style="color:rgba(255,255,255,.5)">&copy; 2026 EcoMarket. All rights
+                    reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details - EcoMarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🌱</text>
+</svg>">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+</head>
+
+<body class="transition-colors duration-300">
+
+    <!-- NAVBAR -->
+    <!-- ── NAVBAR ── -->
+    <nav class="main-navbar">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
+                        <i class="fas fa-leaf text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span
+                            style="color:var(--emerald)">Market</span></span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex items-center gap-1">
+                    <div class="dropdown relative">
+                        <button class="dropdown-trigger nav-link flex items-center gap-1">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
+                            <a href="index.html"
+                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
+                                style="color:var(--text-2)"><i class="fas fa-home me-2"
+                                    style="color:var(--emerald)"></i>Home 1</a>
+                            <a href="index2.html"
+                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
+                                style="color:var(--text-2)"><i class="fas fa-home me-2"
+                                    style="color:var(--emerald)"></i>Home 2</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <div class="dropdown relative">
+                        <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i
+                                class="fas fa-chevron-down text-xs"></i></button>
+                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
+                            <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)"><i
+                                    class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
+                            <a href="admin-dashboard.html" class="block px-4 py-3 text-sm"
+                                style="color:var(--text-2)"><i class="fas fa-shield-alt me-2"
+                                    style="color:var(--teal)"></i>Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="hidden lg:flex items-center gap-2">
+          <button id="rtlToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-[10px] font-bold border" style="border-color:var(--glass-border)" title="Toggle RTL">
+            <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
+          </button>
+          <button id="darkModeToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="login.html" class="nav-link text-sm px-4">Login</a>
+          <a href="register.html" class="btn-primary">Sign Up</a>
+        </div>
+
+                <!-- Hamburger -->
+                <button id="mobileMenuBtn" class="lg:hidden nav-link p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu lg:hidden">
+                <div class="py-4 px-2 space-y-1">
+                    <a href="index.html">Home 1</a>
+                    <a href="index2.html">Home 2</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="contact.html">Contact</a>
+                    <div class="pt-3 mt-3 border-t" style="border-color:var(--border)">
+                        <a href="dashboard.html"><i class="fas fa-user me-2" style="color:var(--emerald)"></i>User
+                            Dashboard</a>
+                        <a href="admin-dashboard.html"><i class="fas fa-shield-alt me-2"
+                                style="color:var(--teal)"></i>Admin Dashboard</a>
+                        <div class="flex gap-2 mt-2 px-2">
+                            <button id="rtlToggleMobile" class="flex-1 py-2 rounded-lg text-sm font-medium"
+                                style="background:var(--bg-3);color:var(--text-2)"><i
+                                    class="fas fa-globe me-1"></i>RTL</button>
+                            <button id="darkModeToggleMobile" class="flex-1 py-2 rounded-lg text-sm font-medium"
+                                style="background:var(--bg-3);color:var(--text-2)"><i
+                                    class="fas fa-moon me-1"></i>Theme</button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-3">
+              <a href="login.html" class="py-2.5 rounded-lg text-center text-sm font-bold border" style="border-color:var(--border); color:var(--text)">Login</a>
+              <a href="register.html" class="btn-primary py-2.5 text-center flex items-center justify-center">Sign Up</a>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="pt-32 pb-16 bg-gradient-hero">
+        <div class="container mx-auto px-4">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=600&fit=crop" alt="Blog"
+                class="w-full rounded-xl shadow-lg mb-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    <span><i class="far fa-calendar me-2"></i>Jan 15, 2026</span>
+                    <span class="mx-2"><i class="fas fa-circle opacity-60" style="font-size:6px;"></i></span>
+                    <span><i class="far fa-clock me-2"></i>5 min read</span>
+                    <span class="mx-2"><i class="fas fa-circle opacity-60" style="font-size:6px;"></i></span>
+                    <span><i class="far fa-folder me-2"></i>Sustainability</span>
+                </div>
+                <h1 class="text-4xl font-bold mb-6">10 Simple Ways to Reduce Your Carbon Footprint</h1>
+                <div class="flex items-center">
+                    <img src="https://ui-avatars.com/api/?name=Emily+Green&background=10b981&color=fff" alt="Author"
+                        class="w-12 h-12 rounded-full me-4">
+                    <div>
+                        <div class="font-semibold">Emily Green</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Sustainability Expert</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG CONTENT -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Main Content -->
+                <article class="lg:col-span-3 bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md">
+                    <div class="prose max-w-none">
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">Reducing your carbon footprint doesn't
+                            have to be complicated. Here are 10 simple, actionable steps you can take today to make a
+                            positive impact on the environment.</p>
+
+                        <h2 class="text-2xl font-bold mt-8 mb-4">1. Use Reusable Bags</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Switching to reusable shopping bags is one of
+                            the easiest ways to reduce plastic waste. A single reusable bag can replace hundreds of
+                            plastic bags over its lifetime.</p>
+
+                        <h2 class="text-2xl font-bold mt-8 mb-4">2. Choose Public Transportation</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Using public transport, carpooling, or biking
+                            instead of driving alone can significantly reduce your carbon emissions.</p>
+
+                        <h2 class="text-2xl font-bold mt-8 mb-4">3. Eat Less Meat</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">The meat industry is a major contributor to
+                            greenhouse gas emissions. Try incorporating more plant-based meals into your diet.</p>
+
+                        <h2 class="text-2xl font-bold mt-8 mb-4">4. Reduce Energy Consumption</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Simple actions like turning off lights when not
+                            in use, using energy-efficient appliances, and adjusting your thermostat can make a big
+                            difference.</p>
+
+                        <h2 class="text-2xl font-bold mt-8 mb-4">5. Support Sustainable Brands</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Choose products from companies that prioritize
+                            sustainability and ethical practices. Your purchasing power matters!</p>
+
+                        <blockquote
+                            class="border-l-4 border-green-500 pl-6 italic my-8 text-xl text-gray-700 dark:text-gray-300">
+                            "Every small action counts. Together, we can create a sustainable future for generations to
+                            come."
+                        </blockquote>
+
+                        <h2 class="text-2xl font-bold mt-8 mb-4">Conclusion</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Remember, you don't have to do everything at
+                            once. Start with one or two changes and gradually incorporate more sustainable practices
+                            into your daily life.</p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <div class="flex flex-wrap gap-2">
+                            <a href="#"
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm hover:bg-green-500 hover:text-white transition">#sustainability</a>
+                            <a href="#"
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm hover:bg-green-500 hover:text-white transition">#carbonfootprint</a>
+                            <a href="#"
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm hover:bg-green-500 hover:text-white transition">#ecofriendly</a>
+                            <a href="#"
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm hover:bg-green-500 hover:text-white transition">#greenliving</a>
+                        </div>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold mb-6">Comments (3)</h3>
+
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <img src="https://ui-avatars.com/api/?name=Sarah+J&background=10b981&color=fff"
+                                    alt="User" class="w-12 h-12 rounded-full me-4">
+                                <div class="flex-1">
+                                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                        <div class="font-semibold mb-1">Sarah Johnson</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">2 days ago</div>
+                                        <p class="text-gray-600 dark:text-gray-300">Great article! I've already started
+                                            using reusable bags and it's made a noticeable difference.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <img src="https://ui-avatars.com/api/?name=Mike+C&background=14b8a6&color=fff"
+                                    alt="User" class="w-12 h-12 rounded-full me-4">
+                                <div class="flex-1">
+                                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                        <div class="font-semibold mb-1">Mike Chen</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">1 week ago</div>
+                                        <p class="text-gray-600 dark:text-gray-300">These tips are really practical.
+                                            Thanks for sharing!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment Form -->
+                        <form class="space-y-4">
+                            <h4 class="text-xl font-semibold">Leave a Comment</h4>
+                            <textarea rows="4" placeholder="Write your comment..."
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-800"></textarea>
+                            <button type="submit"
+                                class="btn-primary">Post
+                                Comment</button>
+                        </form>
+                    </div>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="lg:col-span-1">
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md mb-6 sticky top-24">
+                        <h3 class="text-xl font-semibold mb-4">Related Posts</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-start group">
+                                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=100&h=100&fit=crop"
+                                    alt="Post" class="w-16 h-16 rounded-lg object-cover me-3">
+                                <div>
+                                    <h4 class="font-semibold text-sm group-hover:text-green-600 transition">The Ultimate
+                                        Guide to Zero Waste Living</h4>
+                                    <span class="text-xs text-gray-500">Jan 12, 2026</span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-start group">
+                                <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=100&h=100&fit=crop"
+                                    alt="Post" class="w-16 h-16 rounded-lg object-cover me-3">
+                                <div>
+                                    <h4 class="font-semibold text-sm group-hover:text-green-600 transition">Sustainable
+                                        Fashion Overview</h4>
+                                    <span class="text-xs text-gray-500">Jan 10, 2026</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer style="background:var(--forest);color:#fff" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
+                            <i class="fas fa-leaf text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span
+                                style="color:var(--accent-light)">Market</span></span>
+                    </div>
+                    <p class="text-sm mb-5" style="color:rgba(255,255,255,.6)">Your trusted marketplace for ethical and
+                        sustainable products — making the world better, one purchase at a time.</p>
+                    <div class="flex gap-3">
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-instagram text-sm"></i></a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
+                            style="background:rgba(255,255,255,.1)"><i class="fab fa-linkedin-in text-sm"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-5 text-white">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">About Us</a></li>
+                        <li><a href="services.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Services</a></li>
+                        <li><a href="shop.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Shop</a></li>
+                        <li><a href="blog.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Blog</a></li>
+                        <li><a href="contact.html" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-5 text-white">Customer Service</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">FAQ</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Shipping Info</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Returns</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm transition hover:text-green-400"
+                                style="color:rgba(255,255,255,.6)">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-5 text-white">Newsletter</h4>
+                    <p class="text-sm mb-4" style="color:rgba(255,255,255,.6)">Subscribe for new products and eco-tips.
+                    </p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email address"
+                            class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500"
+                            style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
+                        <button type="submit" class="btn-primary w-full justify-center">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
+                <p class="text-center text-sm" style="color:rgba(255,255,255,.5)">&copy; 2026 EcoMarket. All rights
+                    reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — EcoMarket</title>
+  <meta name="description" content="Sign in to your EcoMarket account and continue your sustainable journey.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='50' font-size='50'>🌱</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+  <style>
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--bg-gradient-hero); }
+    .auth-bg { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%); }
+    .dark .auth-bg { background: linear-gradient(135deg, #0a1a0f 0%, #0f2d1a 50%, #143d23 100%); }
+    .form-input {
+      width: 100%; padding: .75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: .75rem;
+      background: var(--bg-2);
+      color: var(--text);
+      font-size: .95rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-input:focus { border-color: var(--emerald); }
+    .form-input::placeholder { color: var(--text-3); }
+    label { font-size: .875rem; font-weight: 600; color: var(--text-2); display: block; margin-bottom: .5rem; }
+  </style>
+</head>
+<body class="auth-bg transition-colors duration-300">
+
+  <div class="w-full max-w-md animate-fade-in-up">
+    <!-- Card -->
+    <div class="card-hover p-8" style="border-radius:1.5rem">
+      <!-- Card Header: Utilities + Logo -->
+      <div class="flex items-center justify-between mb-8 pb-6 border-b" style="border-color:var(--border)">
+          <a href="index.html" class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-green flex items-center justify-center shadow-md">
+                  <i class="fas fa-leaf text-white text-xs"></i>
+              </div>
+              <span class="text-lg font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
+          </a>
+          <div class="flex gap-2">
+              <button id="rtlToggle" class="px-3 py-1 rounded-full text-[10px] font-bold border hover:bg-gray-50 dark:hover:bg-gray-800 transition" style="border-color:var(--border); color:var(--text-2)" title="Toggle RTL">RTL</button>
+              <button id="darkModeToggle" class="p-1.5 rounded-full border hover:bg-gray-50 dark:hover:bg-gray-800 transition" style="border-color:var(--border); color:var(--text-2)" title="Toggle Theme">
+                  <i class="fas fa-moon text-sm"></i>
+              </button>
+          </div>
+      </div>
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold mb-2" style="color:var(--text)">Welcome Back</h1>
+        <p style="color:var(--text-3)">Sign in to your account to continue</p>
+      </div>
+
+      <form data-validate class="space-y-5">
+        <div>
+          <label for="email">Email Address</label>
+          <input id="email" type="email" required class="form-input" placeholder="you@example.com">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" required class="form-input" placeholder="••••••••">
+        </div>
+        <div class="flex items-center justify-between">
+          <label class="flex items-center gap-2 cursor-pointer" style="margin-bottom:0">
+            <input type="checkbox" class="rounded">
+            <span style="color:var(--text-2);font-weight:400">Remember me</span>
+          </label>
+          <a href="#" class="text-sm font-semibold" style="color:var(--emerald)">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-primary w-full justify-center">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="relative my-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full" style="border-top:1px solid var(--border)"></div>
+        </div>
+        <div class="relative flex justify-center text-sm">
+          <span class="px-4" style="background:var(--bg-2);color:var(--text-3)">Or continue with</span>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="grid grid-cols-2 gap-3">
+        <button class="btn-outline py-3 justify-center text-sm">
+          <i class="fab fa-google text-red-500 me-2"></i>Google
+        </button>
+        <button class="btn-outline py-3 justify-center text-sm">
+          <i class="fab fa-facebook text-blue-600 me-2"></i>Facebook
+        </button>
+      </div>
+
+      <p class="text-center mt-6 text-sm" style="color:var(--text-3)">
+        Don't have an account?
+        <a href="register.html" class="font-semibold" style="color:var(--emerald)">Sign up free</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+

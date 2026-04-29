@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard — EcoMarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+<text y='50' font-size='50'>🌱</text>
+</svg>">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+</head>
+<body class="transition-colors duration-300">
+
+    <div class="flex h-screen overflow-hidden">
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"></div>
+
+        <!-- Sidebar -->
+        <aside id="dashboardSidebar" class="w-64 bg-white dark:bg-gray-800 shadow-lg hidden lg:block fixed inset-y-0 start-0 z-50 lg:static lg:z-auto">
+            <div class="p-6">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
+                      <i class="fas fa-leaf text-white text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold" style="font-family:'Fraunces',serif;color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
+                </a>
+                <div class="mt-3"><span class="text-xs px-2 py-1 rounded-full font-semibold" style="background:rgba(16,185,129,.12);color:var(--emerald)"><i class="fas fa-user me-1"></i>User</span></div>
+            </div>
+            
+                        <nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl transition text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 font-bold">
+                    <i class="fas fa-th-large"></i> Overview
+                </a>
+                <a href="shop.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <i class="fas fa-shopping-bag"></i> My Orders
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <i class="fas fa-heart"></i> Wishlist
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <i class="fas fa-chart-line"></i> Impact Stats
+                </a>
+                <a href="pricing.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <i class="fas fa-gem"></i> Premium
+                </a>
+                <div class="pt-4 pb-2 px-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Settings</div>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                    <i class="fas fa-cog"></i> Account
+                </a>
+                <a href="login.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Topbar -->
+            <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-30">
+                <div class="flex items-center justify-between px-3 sm:px-6 py-4">
+                    <button id="sidebarToggleBtn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition" aria-label="Toggle sidebar menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    
+                    <div class="flex items-center gap-1.5 sm:gap-4 ms-auto">
+                        <button class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition relative">
+                            <i class="fas fa-bell text-lg sm:text-xl"></i>
+                            <span class="absolute top-1 end-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+                        </button>
+                        <button id="rtlToggle" class="flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-xs font-bold border" style="border-color:var(--border)" aria-label="Toggle RTL/LTR">
+                            <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
+                        </button>
+                        <button id="darkModeToggle" class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                            <i class="fas fa-moon text-lg sm:text-xl"></i>
+                        </button>
+                        <div class="flex items-center gap-3">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=10b981&color=fff" alt="User" class="w-10 h-10 rounded-full">
+                            <span class="font-semibold hidden md:inline">John Doe</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6">
+                <h1 class="text-2xl font-bold" style="color:var(--text)">User Dashboard</h1>
+
+                <!-- Stats Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-users text-green-600 text-xl"></i>
+                            </div>
+                            <span class="text-green-600 font-semibold">+12%</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-1">2,543</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Total Users</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-shopping-cart text-blue-600 text-xl"></i>
+                            </div>
+                            <span class="text-green-600 font-semibold">+8%</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-1">1,234</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Orders</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-dollar-sign text-purple-600 text-xl"></i>
+                            </div>
+                            <span class="text-green-600 font-semibold">+15%</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-1">$45,678</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Revenue</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-yellow-600 text-xl"></i>
+                            </div>
+                            <span class="text-gray-600 font-semibold">5 new</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-1">48</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Messages</p>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md">
+                        <h3 class="text-lg font-semibold mb-4">Revenue Trends</h3>
+                        <div class="w-full h-[250px]">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md">
+                        <h3 class="text-lg font-semibold mb-4">Growth Analytics</h3>
+                        <div class="w-full h-[250px]">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Orders -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Recent Orders</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <div>
+                                    <div class="font-semibold">Order #1234</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Organic Cotton Tote Bag</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="font-semibold text-green-600">$24.99</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Completed</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <div>
+                                    <div class="font-semibold">Order #1235</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Bamboo Cutlery Set</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="font-semibold text-green-600">$19.99</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Processing</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <div>
+                                    <div class="font-semibold">Order #1236</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Recycled Glass Bottle</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="font-semibold text-green-600">$34.99</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Shipped</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Activity Feed</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center me-3 flex-shrink-0">
+                                    <i class="fas fa-user-plus text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">New user registered</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">2 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center me-3 flex-shrink-0">
+                                    <i class="fas fa-shopping-bag text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">New order received</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">15 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center me-3 flex-shrink-0">
+                                    <i class="fas fa-star text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">New review posted</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">1 hour ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [12000, 19000, 15000, 25000, 22000, 30000],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // Growth Chart
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        new Chart(growthCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Users',
+                    data: [500, 800, 1200, 1500, 1900, 2543],
+                    backgroundColor: '#14b8a6'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // Mobile sidebar toggle for dashboard
+        const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+        const dashboardSidebar = document.getElementById('dashboardSidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            dashboardSidebar.classList.remove('hidden');
+            sidebarOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            dashboardSidebar.classList.add('hidden');
+            sidebarOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        if (sidebarToggleBtn && dashboardSidebar && sidebarOverlay) {
+            sidebarToggleBtn.addEventListener('click', () => {
+                if (dashboardSidebar.classList.contains('hidden')) {
+                    openSidebar();
+                } else {
+                    closeSidebar();
+                }
+            });
+
+            sidebarOverlay.addEventListener('click', closeSidebar);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !dashboardSidebar.classList.contains('hidden') && window.innerWidth < 1024) {
+                    closeSidebar();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024) {
+                    sidebarOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                } else {
+                    dashboardSidebar.classList.add('hidden');
+                    sidebarOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
