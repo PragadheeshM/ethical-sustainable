@@ -11,42 +11,72 @@
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
 <text y='50' font-size='50'>🌱</text>
 </svg>">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#0a4f2e', secondary: '#e8f5ee', accent: '#16a34a', forest: '#0a4f2e', emerald: '#22c55e', teal: '#14b8a6' } } } }</script>
 </head>
 <body class="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 min-h-screen flex items-center justify-center p-4">
 
-    <div class="text-center max-w-2xl">
+    <div class="text-center max-w-2xl px-6 py-12 glass-card animate-fade-in-up" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid rgba(255, 255, 255, 0.3);">
         <!-- 404 Illustration -->
-        <div class="mb-8">
-            <i class="fas fa-leaf text-9xl text-green-300 dark:text-green-700 animate-pulse"></i>
+        <div class="mb-8 relative inline-block">
+            <div class="absolute inset-0 bg-green-200 blur-3xl opacity-30 rounded-full animate-pulse"></div>
+            <i class="fas fa-tree text-9xl text-green-500 relative z-10"></i>
+            <div class="absolute -top-4 -right-4 bg-accent text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-4 border-white shadow-lg">404</div>
         </div>
 
-        <h1 class="text-8xl font-bold text-green-600 mb-4">404</h1>
-        <h2 class="text-3xl font-bold mb-4">Oops! Page Not Found</h2>
-        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Looks like this page has gone green and wandered off into the forest. 
-            Let's get you back on track!
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4" style="font-family:'Fraunces', serif; color: var(--text)">Lost in the Wild?</h1>
+        <p class="text-xl mb-8" style="color: var(--text-3)">
+            Even the most seasoned explorers lose their way sometimes. It looks like this page has wandered off into the deep forest.
         </p>
 
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="index.html" class="btn-primary">
-                <i class="fas fa-home me-2"></i>Back to Home
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="index.html" class="btn-primary flex items-center gap-2 px-8 py-4">
+                <i class="fas fa-home"></i> Back to the Main Path
             </a>
-            <a href="contact.html" class="btn-outline">
-                Contact Support
+            <a href="shop.html" class="btn-outline flex items-center gap-2 px-8 py-4">
+                <i class="fas fa-shopping-bag"></i> Browse Sustainable Shop
             </a>
         </div>
 
-        <!-- Fun Eco Facts -->
-        <div class="mt-16 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-            <h3 class="text-lg font-semibold mb-3"><i class="fas fa-lightbulb text-yellow-500 me-2"></i>Eco Fact</h3>
-            <p class="text-gray-600 dark:text-gray-300">Did you know? One tree can absorb up to 48 pounds of <i class="fas fa-cloud me-1 text-green-600"></i>carbon per year. That's why we plant a tree for every order placed on EcoMarket! <i class="fas fa-tree text-green-600"></i></p>
+        <!-- Interactive Eco-Insight -->
+        <div class="mt-8 p-8 rounded-2xl text-left relative overflow-hidden" style="background: var(--bg-3); border: 1px solid var(--glass-border)">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                    <i class="fas fa-lightbulb text-green-600"></i>
+                </div>
+                <h3 class="text-lg font-bold" style="color: var(--text)">While you're here...</h3>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle mt-1" style="color: var(--accent)"></i>
+                    <p class="text-sm" style="color: var(--text-3)">Did you know? Switching to <strong>EcoMarket</strong> products has helped our community save over <strong>8.5 tonnes</strong> of plastic waste this year alone.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle mt-1" style="color: var(--accent)"></i>
+                    <p class="text-sm" style="color: var(--text-3)">Every time you encounter this page (and even when you don't), our servers are running on <strong>100% renewable energy</strong>.</p>
+                </div>
+            </div>
+            
+            <!-- Small impact badge -->
+            <div class="absolute -bottom-6 -right-6 opacity-10">
+                <i class="fas fa-globe-americas text-9xl"></i>
+            </div>
         </div>
+
+        <p class="mt-8 text-xs font-medium uppercase tracking-widest" style="color: var(--text-4)">Sustainability is a journey, not a destination.</p>
     </div>
 
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDarkMode();
     initializeRTLToggle();
     initializeMobileMenu();
+    initializeMobileAccordion();
     initializeDropdowns();
     initializeCounters();
     initializeAccordions();
@@ -48,8 +49,9 @@ function initializeActiveNavLinks() {
         if (!href) return;
 
         if (href === currentPage) {
-            link.classList.add('active-nav-link');
-            if (link.classList.contains('nav-link')) {
+            // Only add active class to actual nav links, not the brand logo
+            if (link.classList.contains('nav-link') || link.closest('.dropdown-menu')) {
+                link.classList.add('active-nav-link');
                 link.classList.add('font-semibold');
             }
         }
@@ -108,7 +110,12 @@ function initializeRTLToggle() {
     // Function to update button text
     const updateBtnText = (isRTL) => {
         rtlToggles.forEach(btn => {
-            btn.textContent = isRTL ? 'LTR' : 'RTL';
+            const span = btn.querySelector('span');
+            if (span) {
+                span.textContent = isRTL ? 'LTR' : 'RTL';
+            } else {
+                btn.textContent = isRTL ? 'LTR' : 'RTL';
+            }
         });
     };
 
@@ -165,6 +172,35 @@ function initializeMobileMenu() {
             }
         });
     }
+}
+
+// ========================================
+// Mobile Accordion Dropdowns
+// ========================================
+function initializeMobileAccordion() {
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.mobile-accordion-trigger');
+        if (!trigger) return;
+
+        const targetId = trigger.getAttribute('data-target');
+        const body = document.getElementById(targetId);
+        if (!body) return;
+
+        const isOpen = body.classList.contains('open');
+
+        // Close all other open accordions
+        document.querySelectorAll('.mobile-accordion-body.open').forEach(b => {
+            if (b !== body) {
+                b.classList.remove('open');
+                const t = document.querySelector(`.mobile-accordion-trigger[data-target="${b.id}"]`);
+                if (t) t.classList.remove('open');
+            }
+        });
+
+        // Toggle current
+        body.classList.toggle('open', !isOpen);
+        trigger.classList.toggle('open', !isOpen);
+    });
 }
 
 // ========================================
@@ -250,18 +286,29 @@ function initializeAccordions() {
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     
     accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            const isActive = content.classList.contains('active');
+        header.addEventListener('click', function() {
+            const item = this.closest('.accordion-item');
+            if (!item) return;
             
-            // Close all accordions
-            document.querySelectorAll('.accordion-content').forEach(c => {
-                c.classList.remove('active');
+            const content = item.querySelector('.accordion-content');
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherContent = otherItem.querySelector('.accordion-content');
+                    if (otherContent) otherContent.classList.remove('active');
+                }
             });
             
-            // Open clicked accordion if it wasn't active
-            if (!isActive) {
-                content.classList.add('active');
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+                if (content) content.classList.remove('active');
+            } else {
+                item.classList.add('active');
+                if (content) content.classList.add('active');
             }
         });
     });

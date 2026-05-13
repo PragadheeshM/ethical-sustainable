@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard — EcoMarket</title>
-  <meta name="description" content="EcoMarket Admin Dashboard — manage users, orders, products and analytics.">
+  <title>Admin Dashboard  EcoMarket</title>
+  <meta name="description" content="EcoMarket Admin Dashboard  manage users, orders, products and analytics.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='50' font-size='50'>🌱</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#0a4f2e', secondary: '#e8f5ee', accent: '#16a34a', forest: '#0a4f2e', emerald: '#22c55e', teal: '#14b8a6' } } } }</script>
   <style>
     body { overflow: hidden; }
     .sidebar-link {
@@ -37,7 +37,7 @@
     .badge-status-pending  { background: rgba(245,158,11,.12); color: #d97706; padding: .2rem .7rem; border-radius: 99px; font-size: .75rem; font-weight: 600; }
     .badge-status-inactive { background: rgba(239,68,68,.1); color: #dc2626; padding: .2rem .7rem; border-radius: 99px; font-size: .75rem; font-weight: 600; }
     .progress-bar { height: 6px; border-radius: 99px; background: var(--bg-3); overflow: hidden; }
-    .progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--emerald), var(--teal)); transition: width 1s ease; }
+    .progress-fill { height: 100%; border-radius: 99px; background: var(--emerald); transition: width 1s ease; }
   </style>
 </head>
 <body class="transition-colors duration-300">
@@ -46,17 +46,15 @@
   <!-- Sidebar Overlay (mobile) -->
   <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
 
-  <!-- ── SIDEBAR ── -->
-  <aside id="adminSidebar" class="sidebar w-64 flex flex-col fixed inset-y-0 start-0 z-50 hidden lg:flex overflow-y-auto">
+  <!-- -- SIDEBAR -- -->
+  <aside id="adminSidebar" class="sidebar sidebar-transition w-64 flex flex-col fixed inset-y-0 start-0 z-50 hidden lg:flex lg:static lg:z-auto overflow-y-auto">
     <!-- Logo -->
-    <div class="p-5 border-b" style="border-color:var(--border)">
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-          <i class="fas fa-leaf text-white text-sm"></i>
-        </div>
-        <span class="text-lg font-bold" style="font-family:'Fraunces',serif;color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
+    <div class="p-6 border-b border-gray-100 dark:border-gray-700">
+      <a href="index.html" class="logo-container flex items-center gap-2">
+        <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
+        <span class="logo-text text-lg font-bold" style="font-family:'Fraunces',serif;color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
       </a>
-      <div class="mt-3 flex items-center gap-2">
+      <div class="sidebar-sub-badge mt-3 flex items-center gap-2">
         <span class="text-xs px-2 py-1 rounded-full font-semibold" style="background:rgba(239,68,68,.12);color:#dc2626">
           <i class="fas fa-shield-alt me-1"></i>Admin
         </span>
@@ -65,45 +63,42 @@
 
     <!-- Nav Links -->
     <nav class="flex-1 p-4 space-y-1">
-      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 px-3">Main Menu</div>
-      <a href="admin-dashboard.html" class="sidebar-link active"><i class="fas fa-chart-pie"></i> Overview</a>
-      <a href="#" class="sidebar-link"><i class="fas fa-users"></i> User Management</a>
-      <a href="#" class="sidebar-link"><i class="fas fa-shopping-cart"></i> Orders & Sales</a>
-      <a href="shop.html" class="sidebar-link"><i class="fas fa-box"></i> Products</a>
+      <div class="menu-label text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 px-3">Main Menu</div>
+      <a href="admin-dashboard.html" class="sidebar-link active"><i class="fas fa-chart-pie"></i> <span class="nav-text">Overview</span></a>
+      <a href="#" class="sidebar-link"><i class="fas fa-users"></i> <span class="nav-text">User Management</span></a>
+      <a href="#" class="sidebar-link"><i class="fas fa-shopping-cart"></i> <span class="nav-text">Orders & Sales</span></a>
+      <a href="shop.html" class="sidebar-link"><i class="fas fa-box"></i> <span class="nav-text">Products</span></a>
       
-      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 mt-6 px-3">System</div>
-      <a href="#" class="sidebar-link"><i class="fas fa-bullhorn"></i> Campaigns</a>
-      <a href="blog.html" class="sidebar-link"><i class="fas fa-newspaper"></i> Blog Posts</a>
-      <a href="#" class="sidebar-link"><i class="fas fa-cog"></i> Settings</a>
+      <div class="menu-label text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 mt-6 px-3">System</div>
+      <a href="#" class="sidebar-link"><i class="fas fa-bullhorn"></i> <span class="nav-text">Campaigns</span></a>
+      <a href="blog.html" class="sidebar-link"><i class="fas fa-newspaper"></i> <span class="nav-text">Blog Posts</span></a>
+      <a href="#" class="sidebar-link"><i class="fas fa-cog"></i> <span class="nav-text">Settings</span></a>
     </nav>
 
 
     <!-- Admin Profile -->
-    <div class="p-4 border-t" style="border-color:var(--border)">
-      <div class="flex items-center gap-3">
-        <img src="https://ui-avatars.com/api/?name=Admin+User&background=dc2626&color=fff" alt="Admin" class="w-10 h-10 rounded-full">
-        <div class="flex-1 min-w-0">
+    <div class="p-4 border-t border-gray-100 dark:border-gray-700">
+      <div class="profile-container flex items-center gap-3">
+        <img src="https://ui-avatars.com/api/?name=Admin+User&background=dc2626&color=fff" alt="Admin" class="w-10 h-10 rounded-full flex-shrink-0">
+        <div class="profile-info flex-1 min-w-0">
           <div class="text-sm font-semibold truncate" style="color:var(--text)">Admin User</div>
           <div class="text-xs truncate" style="color:var(--text-3)">admin@ecomarket.com</div>
         </div>
-        <a href="login.html" class="text-sm" style="color:var(--text-3)" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        <a href="login.html" class="profile-info text-sm" style="color:var(--text-3)" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
       </div>
     </div>
   </aside>
 
-  <!-- ── MAIN CONTENT ── -->
-  <div class="flex-1 flex flex-col overflow-hidden lg:ms-64">
+  <!-- -- MAIN CONTENT -- -->
+  <div class="flex-1 flex flex-col overflow-hidden">
 
-    <!-- ── TOPBAR ── -->
+    <!-- -- TOPBAR -- -->
     <header class="topbar flex items-center justify-between px-3 sm:px-6 py-4 sticky top-0 z-30">
       <div class="flex items-center gap-2 sm:gap-4">
-        <button id="sidebarToggleBtn" class="lg:hidden p-2 rounded-lg" style="color:var(--text-2);background:var(--bg-3)">
+        <button id="sidebarToggleBtn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition" style="color:var(--text-2)">
           <i class="fas fa-bars text-lg"></i>
         </button>
-        <div>
-          <h1 class="text-[11px] sm:text-lg font-bold" style="color:var(--text)">Admin</h1>
-          <p class="text-[9px] sm:text-xs" style="color:var(--text-3)">Welcome</p>
-        </div>
+        <h2 class="text-lg font-bold hidden sm:block" style="font-family:'Fraunces',serif;color:var(--text)">Admin Dashboard</h2>
       </div>
       <div class="flex items-center gap-1.5 sm:gap-3">
         <!-- Search -->
@@ -117,9 +112,7 @@
           <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
         </button>
         <!-- RTL -->
-        <button id="rtlToggle" class="flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-xs font-bold" style="background:var(--bg-3);color:var(--text-2)" title="Toggle RTL">
-          <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
-        </button>
+        <button id="rtlToggle" class="flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-xs font-bold" style="background:var(--bg-3);color:var(--text-2)" title="Toggle RTL">RTL</button>
         <!-- Dark Mode -->
         <button id="darkModeToggle" class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" style="background:var(--bg-3);color:var(--text-2)" title="Toggle Dark Mode">
           <i class="fas fa-moon text-sm sm:text-base"></i>
@@ -129,10 +122,41 @@
       </div>
     </header>
 
-    <!-- ── DASHBOARD BODY ── -->
+    <!-- -- DASHBOARD BODY -- -->
     <main class="flex-1 overflow-y-auto p-4 sm:p-6" style="background:var(--bg)">
+          
+          <!-- PLATFORM ECO IMPACT SUMMARY -->
+          <div class="glass-card p-6 mb-6" style="background:var(--primary)">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <i class="fas fa-globe-americas text-lg" style="color:#86efac"></i>
+                  <span class="font-bold text-white text-lg">Platform Environmental Impact  This Month</span>
+                </div>
+                <p class="text-sm" style="color:rgba(255,255,255,.8)">Aggregated impact generated by all sellers, buyers, and operations across the EcoMarket platform.</p>
+              </div>
+              <div class="flex gap-6 flex-wrap">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white" style="font-family:'Fraunces',serif">4,200</div>
+                  <div class="text-xs" style="color:rgba(255,255,255,.8)"><i class="fas fa-tree me-1" style="color:#86efac"></i>Trees Planted</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white" style="font-family:'Fraunces',serif">710kg</div>
+                  <div class="text-xs" style="color:rgba(255,255,255,.8)"><i class="fas fa-water me-1" style="color:#86efac"></i>Plastic Removed</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white" style="font-family:'Fraunces',serif">12T</div>
+                  <div class="text-xs" style="color:rgba(255,255,255,.8)"><i class="fas fa-cloud me-1" style="color:#86efac"></i>CO2 Offset</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-white" style="font-family:'Fraunces',serif">$8,400</div>
+                  <div class="text-xs" style="color:rgba(255,255,255,.8)"><i class="fas fa-users me-1" style="color:#86efac"></i>Community Funded</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <!-- ── STAT CARDS ── -->
+      <!-- -- STAT CARDS -- -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <!-- Total Users -->
         <div class="stat-card">
@@ -156,7 +180,7 @@
           </div>
           <div class="text-2xl font-bold mb-1" style="color:var(--text)">1,234</div>
           <div class="text-xs" style="color:var(--text-3)">Total Orders</div>
-          <div class="progress-bar mt-3"><div class="progress-fill" style="width:60%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:60%;background:#3b82f6"></div></div>
         </div>
         <!-- Revenue -->
         <div class="stat-card">
@@ -168,7 +192,7 @@
           </div>
           <div class="text-2xl font-bold mb-1" style="color:var(--text)">$45,678</div>
           <div class="text-xs" style="color:var(--text-3)">Total Revenue</div>
-          <div class="progress-bar mt-3"><div class="progress-fill" style="width:85%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:85%;background:#8b5cf6"></div></div>
         </div>
         <!-- Products -->
         <div class="stat-card">
@@ -180,11 +204,11 @@
           </div>
           <div class="text-2xl font-bold mb-1" style="color:var(--text)">486</div>
           <div class="text-xs" style="color:var(--text-3)">Active Products</div>
-          <div class="progress-bar mt-3"><div class="progress-fill" style="width:50%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
+          <div class="progress-bar mt-3"><div class="progress-fill" style="width:50%;background:#f59e0b"></div></div>
         </div>
       </div>
 
-      <!-- ── CHARTS ROW ── -->
+      <!-- -- CHARTS ROW -- -->
       <div class="grid lg:grid-cols-3 gap-6 mb-6">
         <!-- Revenue Line Chart -->
         <div class="stat-card lg:col-span-2">
@@ -218,7 +242,7 @@
         </div>
       </div>
 
-      <!-- ── USERS TABLE + RECENT ORDERS ── -->
+      <!-- -- USERS TABLE + RECENT ORDERS -- -->
       <div class="grid lg:grid-cols-2 gap-6">
         <!-- Users Table -->
         <div class="stat-card overflow-hidden">
@@ -290,7 +314,7 @@
         <div class="stat-card">
           <div class="flex items-center justify-between mb-4">
             <h3 class="font-bold" style="color:var(--text)">Recent Orders</h3>
-            <a href="#" class="text-xs" style="color:var(--emerald)">View All →</a>
+            <a href="#" class="text-xs" style="color:var(--emerald)">View All ?</a>
           </div>
           <div class="space-y-3">
             <div class="flex items-center gap-3 p-3 rounded-xl" style="background:var(--bg-3)">
@@ -395,12 +419,31 @@
   function openSidebar() { adminSidebar.classList.remove('hidden'); adminSidebar.classList.add('flex'); sidebarOverlay.classList.remove('hidden'); document.body.style.overflow='hidden'; }
   function closeSidebar() { adminSidebar.classList.add('hidden'); adminSidebar.classList.remove('flex'); sidebarOverlay.classList.add('hidden'); document.body.style.overflow=''; }
 
-  sidebarToggleBtn?.addEventListener('click', () => adminSidebar.classList.contains('hidden') ? openSidebar() : closeSidebar());
+  sidebarToggleBtn?.addEventListener('click', () => {
+    if (window.innerWidth >= 1280) {
+      // Desktop (≥1280px): collapse/expand sidebar in-place
+      adminSidebar.classList.toggle('sidebar-collapsed');
+    } else {
+      // Tablet/Mobile (<1280px): slide-in overlay behavior
+      adminSidebar.classList.contains('hidden') ? openSidebar() : closeSidebar();
+    }
+  });
+
   sidebarOverlay?.addEventListener('click', closeSidebar);
-  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) { adminSidebar.classList.remove('hidden'); adminSidebar.classList.add('flex'); sidebarOverlay.classList.add('hidden'); document.body.style.overflow=''; } else { closeSidebar(); } });
+  window.addEventListener('resize', () => { 
+    if (window.innerWidth >= 1280) { 
+      // Desktop: ensure sidebar is visible, remove collapsed from small screen
+      adminSidebar.classList.remove('hidden'); 
+      adminSidebar.classList.add('flex');
+      adminSidebar.classList.remove('sidebar-collapsed');
+      sidebarOverlay.classList.add('hidden'); 
+      document.body.style.overflow=''; 
+    } else { 
+      // Tablet/Mobile: hide sidebar, clear collapsed state
+      adminSidebar.classList.remove('sidebar-collapsed');
+      closeSidebar(); 
+    } 
+  });
 </script>
 </body>
 </html>
-
-
-

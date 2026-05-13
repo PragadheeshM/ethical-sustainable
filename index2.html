@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,8 +18,11 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#10b981',
-                        secondary: '#059669',
+                        primary: '#0a4f2e',
+                        secondary: '#e8f5ee',
+                        accent: '#16a34a',
+                        forest: '#0a4f2e',
+                        emerald: '#22c55e', teal: '#14b8a6',
                     }
                 }
             }
@@ -30,136 +33,181 @@
 <body class="transition-colors duration-300">
 
     <!-- NAVBAR -->
-    <nav class="main-navbar">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-                        <i class="fas fa-leaf text-white text-lg"></i>
-                    </div>
-                    <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span
-                            style="color:var(--emerald)">Market</span></span>
-                </a>
+      <nav class="main-navbar">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+          <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
+          <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
+        </a>
 
-                <!-- Desktop Nav -->
-                <div class="hidden xl:flex items-center gap-1">
-                    <div class="dropdown relative">
-                        <button class="dropdown-trigger nav-link flex items-center gap-1">
-                            Home <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
-                            <a href="index.html"
-                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
-                                style="color:var(--text-2)"><i class="fas fa-home me-2"
-                                    style="color:var(--emerald)"></i>Home 1</a>
-                            <a href="index2.html"
-                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
-                                style="color:var(--text-2)"><i class="fas fa-home me-2"
-                                    style="color:var(--emerald)"></i>Home 2</a>
-                        </div>
-                    </div>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="shop.html" class="nav-link">Shop</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
-                    <a href="pricing.html" class="nav-link">Pricing</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                    <div class="dropdown relative">
-                        <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i
-                                class="fas fa-chevron-down text-xs"></i></button>
-                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
-                            <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)"><i
-                                    class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
-                            <a href="admin-dashboard.html" class="block px-4 py-3 text-sm"
-                                style="color:var(--text-2)"><i class="fas fa-shield-alt me-2"
-                                    style="color:var(--teal)"></i>Admin Dashboard</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Actions & Hamburger -->
-                <div class="flex items-center gap-1.5 sm:gap-3">
-                    <!-- Utilities (Always visible) -->
-                    <button id="rtlToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-[10px] font-bold border" style="border-color:var(--glass-border)" title="Toggle RTL">
-                        <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
-                    </button>
-                    <button id="darkModeToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" title="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-
-                    <!-- Auth (Tablet & Desktop) -->
-                    <div class="hidden md:flex items-center gap-2">
-                        <a href="login.html" class="nav-link text-sm px-4">Login</a>
-                        <a href="register.html" class="btn-primary">Sign Up</a>
-                    </div>
-
-                    <!-- Hamburger Button -->
-                    <button id="mobileMenuBtn" class="xl:hidden nav-link p-2">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+        <!-- Desktop Nav -->
+        <div class="hidden xl:flex items-center gap-1">
+          <div class="dropdown relative">
+            <button class="dropdown-trigger nav-link flex items-center gap-1">
+              Home <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
+              <a href="index.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)">Home 1</a>
+              <a href="index2.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)">Home 2</a>
             </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="mobile-menu xl:hidden">
-                <div class="py-4 px-2 space-y-1">
-                    <a href="index.html">Home 1</a>
-                    <a href="index2.html">Home 2</a>
-                    <a href="about.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="shop.html">Shop</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="pricing.html">Pricing</a>
-                    <a href="contact.html">Contact</a>
-                    <div class="pt-3 mt-3 border-t" style="border-color:var(--border)">
-                        <a href="dashboard.html"><i class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
-                        <a href="admin-dashboard.html"><i class="fas fa-shield-alt me-2" style="color:var(--teal)"></i>Admin Dashboard</a>
-                        
-                        <div class="grid grid-cols-2 gap-2 mt-3 md:hidden">
-                            <a href="login.html" class="py-2.5 rounded-lg text-center text-sm font-bold border"
-                                style="border-color:var(--border); color:var(--text)">Login</a>
-                            <a href="register.html"
-                                class="btn-primary py-2.5 text-center flex items-center justify-center">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="pricing.html" class="nav-link">Pricing</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown relative">
+              <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i class="fas fa-chevron-down text-xs"></i></button>
+              <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
+                <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)">User Dashboard</a>
+                <a href="admin-dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)">Admin Dashboard</a>
+              </div>
             </div>
         </div>
-    </nav>
+
+        <!-- Right Actions & Hamburger -->
+        <div class="flex items-center gap-1.5 sm:gap-3">
+          <!-- Utilities (Always visible) -->
+          <button id="rtlToggle" class="btn btn-outline btn-sm" title="Toggle RTL">RTL</button>
+          <button id="darkModeToggle" class="btn btn-ghost btn-icon" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <!-- Auth (Tablet & Desktop) -->
+          <div class="hidden md:flex items-center gap-2">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+          </div>
+
+          <!-- Hamburger Button -->
+          <button id="mobileMenuBtn" class="xl:hidden nav-link p-2">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu xl:hidden">
+        <div class="py-3 px-2 space-y-1">
+          <!-- Home Accordion -->
+          <button class="mobile-accordion-trigger" data-target="mobileHomeMenu">
+            Home
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div id="mobileHomeMenu" class="mobile-accordion-body">
+            <a href="index.html">Home 1</a>
+            <a href="index2.html">Home 2</a>
+          </div>
+
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Blog</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+
+          <!-- Dashboard Accordion -->
+          <button class="mobile-accordion-trigger" data-target="mobileDashMenu">
+            Dashboard
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div id="mobileDashMenu" class="mobile-accordion-body">
+            <a href="dashboard.html">User Dashboard</a>
+            <a href="admin-dashboard.html">Admin Dashboard</a>
+          </div>
+
+          <!-- Auth Buttons -->
+          <div class="grid grid-cols-2 gap-2 pt-3 mt-2 md:hidden" style="border-top:1px solid var(--border)">
+            <a href="login.html" class="btn btn-outline text-center">Login</a>
+            <a href="register.html" class="btn btn-primary text-center">Sign Up</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 overflow-hidden">
+    <section class="relative pt-32 pb-24 overflow-hidden min-h-[85vh] flex items-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1600&fit=crop"
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&fit=crop"
                 class="w-full h-full object-cover" alt="Background">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-primary/70 to-accent/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-forest/95 via-forest/80 to-accent/50"></div>
+            <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/leaf.png');"></div>
         </div>
+        
         <div class="container mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="animate-fade-in-up">
-                    <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                        Empower Your Sustainable Business
+                    <span class="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-bold mb-6 border border-white/30">
+                        <i class="fas fa-rocket me-2"></i> Scale with Purpose
+                    </span>
+                    <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8" style="font-family:'Fraunces', serif">
+                        Scale Your Impact, Not Just Your <span class="text-emerald-400">Sales.</span>
                     </h1>
-                    <p class="text-xl text-white/90 mb-8">
-                        All-in-one platform for eco-conscious businesses. Track impact, manage operations, and grow
-                        sustainably with our powerful tools.
+                    <p class="text-xl lg:text-2xl text-white/90 mb-10 leading-relaxed max-w-xl">
+                        The world's first B-Corp aligned platform designed to grow sustainable businesses through radical transparency and verified environmental accountability.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="register.html"
-                            class="btn-primary" style="background:white; color:var(--primary) !important; padding: 1rem 2rem;">
-                            Start Free Trial
-                        </a>
-                        <a href="#features"
-                            class="btn-outline" style="border-color:white; color:white; padding: 1rem 2rem;">
-                            Learn More
-                        </a>
+                    <div class="flex flex-wrap gap-4 mb-12">
+                        <a href="register.html" class="btn btn-secondary btn-xl">Launch Your Eco-Shop</a>
+                        <a href="services.html" class="btn btn-outline-white btn-xl">Explore Services</a>
+                    </div>
+                    
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap items-center gap-8 opacity-90">
+                        <div class="flex items-center gap-2 text-emerald-400">
+                            <i class="fas fa-certificate text-2xl"></i>
+                            <span class="text-sm font-bold uppercase tracking-widest text-white">B-Corp Partner</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-emerald-400">
+                            <i class="fas fa-globe-americas text-2xl"></i>
+                            <span class="text-sm font-bold uppercase tracking-widest text-white">Climate Positive</span>
+                        </div>
                     </div>
                 </div>
-                <div class="relative animate-fade-in">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=500&fit=crop"
-                        alt="Dashboard" class="rounded-2xl shadow-2xl">
+                
+                <div class="hidden lg:block animate-fade-in-up delay-2">
+                    <div class="glass-card p-10 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[3rem] shadow-2xl relative">
+                        <div class="absolute -top-6 -right-6 w-20 h-20 bg-accent rounded-full flex items-center justify-center text-white text-3xl shadow-lg">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-8" style="font-family:'Fraunces', serif">Platform Impact</h3>
+                        <div class="space-y-8">
+                            <div>
+                                <div class="flex justify-between text-white mb-3">
+                                    <span class="font-bold text-emerald-300">Reforestation</span>
+                                    <span class="font-bold">85%</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-3">
+                                    <div class="bg-green-400 h-3 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-white mb-3">
+                                    <span class="font-bold text-emerald-300">Plastic Diversion</span>
+                                    <span class="font-bold">92%</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-3">
+                                    <div class="bg-teal-400 h-3 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-white mb-3">
+                                    <span class="font-bold text-emerald-300">Green Energy</span>
+                                    <span class="font-bold">68%</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-3">
+                                    <div class="bg-yellow-400 h-3 rounded-full" style="width: 68%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10 pt-8 border-t border-white/10 text-center">
+                            <p class="text-white/80 italic text-sm">"The most transparent dashboard for eco-growth."</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -278,7 +326,7 @@
                     <div class="mb-6"><span class="text-4xl font-bold"
                             style="font-family:'Fraunces',serif;color:var(--text)">$29</span><span class="text-sm"
                             style="color:var(--text-3)">/month</span></div>
-                    <a href="pricing.html" class="btn-outline w-full justify-center mt-auto">Get Started</a>
+                    <a href="pricing.html" class="btn btn-outline w-full mt-auto">Get Started</a>
                 </div>
                 <!-- Pro -->
                 <div class="glass-card p-8 text-center pricing-highlight animate-fade-in-up delay-2 relative">
@@ -287,13 +335,13 @@
                             style="background:var(--accent)">Most Popular</span>
                     </div>
                     <div class="w-14 h-14 mx-auto mb-5 rounded-2xl flex items-center justify-center text-xl text-white"
-                        style="background:linear-gradient(135deg,var(--accent),var(--accent-dark))">
+                        style="background:var(--accent)">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-1">Growth</h3>
                     <div class="mb-6"><span class="text-4xl font-bold"
                             style="font-family:'Fraunces',serif;color:var(--text)">$79</span></div>
-                    <a href="pricing.html" class="btn-primary w-full justify-center mt-auto">Start Free Trial</a>
+                    <a href="pricing.html" class="btn btn-primary w-full mt-auto">Start Free Trial</a>
                 </div>
                 <!-- Enterprise -->
                 <div class="glass-card p-8 text-center animate-fade-in-up delay-3">
@@ -304,91 +352,66 @@
                     <h3 class="text-xl font-bold mb-1">Enterprise</h3>
                     <div class="mb-6"><span class="text-4xl font-bold"
                             style="font-family:'Fraunces',serif;color:var(--text)">Custom</span></div>
-                    <a href="contact.html" class="btn-outline w-full justify-center mt-auto">Contact Sales</a>
+                    <a href="contact.html" class="btn btn-outline w-full mt-auto">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ── FOOTER ── -->
-    <footer style="background:var(--forest);color:#fff" class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <a href="index.html" class="flex items-center gap-2 mb-5">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-                            <i class="fas fa-leaf text-white text-lg"></i>
-                        </div>
-                        <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span
-                                style="color:var(--emerald)">Market</span></span>
-                    </a>
-                    <p class="text-sm mb-5" style="color:rgba(255,255,255,.6)">Your trusted marketplace for ethical and
-                        sustainable products — making the world better, one purchase at a time.</p>
-                    <div class="flex gap-3">
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-instagram text-sm"></i></a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-linkedin-in text-sm"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-5 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="about.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">About Us</a></li>
-                        <li><a href="services.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Services</a></li>
-                        <li><a href="shop.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Shop</a></li>
-                        <li><a href="blog.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Blog</a></li>
-                        <li><a href="contact.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-5 text-white">Customer Service</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">FAQ</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Shipping Info</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Returns</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Privacy Policy</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-5 text-white">Newsletter</h4>
-                    <p class="text-sm mb-4" style="color:rgba(255,255,255,.6)">Subscribe for new products and eco-tips.
-                    </p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="Your email address"
-                            class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500"
-                            style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
-                        <button type="submit" class="btn-primary w-full justify-center mt-auto">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
-                <p class="text-center text-sm" style="color:rgba(255,255,255,.5)">&copy; 2026 EcoMarket. All rights
-                    reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
-            </div>
+      <footer style="background:var(--forest);color:#fff" class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-5">
+            <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
+            <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span style="color:var(--emerald)">Market</span></span>
+          </a>
+          <p class="text-sm mb-5" style="color:rgba(255,255,255,.8)">Your trusted marketplace for ethical and sustainable products — making the world better, one purchase at a time.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-linkedin-in text-sm"></i></a>
+          </div>
         </div>
-    </footer>
+        <div>
+          <h4 class="font-bold mb-5 text-white">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">About Us</a></li>
+            <li><a href="services.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Services</a></li>
+            <li><a href="shop.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Shop</a></li>
+            <li><a href="blog.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Blog</a></li>
+            <li><a href="contact.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-5 text-white">Customer Service</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">FAQ</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Shipping Info</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Returns</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Privacy Policy</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-5 text-white">Newsletter</h4>
+          <p class="text-sm mb-4" style="color:rgba(255,255,255,.8)">Subscribe for new products and eco-tips.</p>
+          <form class="space-y-3">
+            <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
+            <button type="submit" class="btn btn-accent w-full mt-2">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
+        <p class="text-center text-sm" style="color:rgba(255,255,255,.7)">&copy; 2026 EcoMarket. All rights reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
+      </div>
+    </div>
+  </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
 
 </html>
+

@@ -1,122 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - EcoMarket</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - EcoMarket</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
 <text y='50' font-size='50'>🌱</text>
 </svg>">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#0a4f2e', secondary: '#e8f5ee', accent: '#16a34a', forest: '#0a4f2e', emerald: '#22c55e', teal: '#14b8a6' } } } }</script>
   <style>
-    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
-    .auth-bg { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%); }
-    .dark .auth-bg { background: linear-gradient(135deg, #0a1a0f 0%, #0f2d1a 50%, #143d23 100%); }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .auth-bg {
+      background: #ecfdf5;
+    }
+
+    .dark .auth-bg {
+      background: #0a1a0f;
+    }
   </style>
 </head>
+
 <body class="auth-bg transition-colors duration-300">
 
-    <div class="w-full max-w-md animate-fade-in-up">
-        <!-- Register Card -->
-        <div class="glass-card p-8" style="border-radius:1.5rem">
-            <!-- Card Header: Utilities + Logo -->
-            <div class="flex items-center justify-between mb-8 pb-6 border-b" style="border-color:var(--border)">
-                <a href="index.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-green flex items-center justify-center shadow-md">
-                        <i class="fas fa-leaf text-white text-xs"></i>
-                    </div>
-                    <span class="text-lg font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
-                </a>
-                <div class="flex gap-2">
-                    <button id="rtlToggle" class="px-3 py-1 rounded-full text-[10px] font-bold border hover:bg-gray-50 dark:hover:bg-gray-800 transition" style="border-color:var(--border); color:var(--text-2)" title="Toggle RTL">RTL</button>
-                    <button id="darkModeToggle" class="p-1.5 rounded-full border hover:bg-gray-50 dark:hover:bg-gray-800 transition" style="border-color:var(--border); color:var(--text-2)" title="Toggle Theme">
-                        <i class="fas fa-moon text-sm"></i>
-                    </button>
-                </div>
-            </div>
-            <h2 class="text-3xl font-bold text-center mb-2">Create Account</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-center mb-8">Join our sustainable community</p>
+  <div class="fixed top-4 right-4 sm:top-6 sm:right-6 flex items-center gap-2 sm:gap-3 z-50">
+    <button id="rtlToggle" class="btn btn-outline btn-sm" title="Toggle RTL">RTL</button>
+    <button id="darkModeToggle" class="btn btn-outline btn-icon" title="Toggle Theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
 
-            <form data-validate class="space-y-6">
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">First Name</label>
-                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Last Name</label>
-                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
-                    </div>
-                </div>
+  <div class="w-full max-w-md animate-fade-in-up">
+    <!-- Register Card -->
+    <div class="glass-card p-8" style="border-radius:1.5rem">
+      <!-- Card Header: Centered Logo -->
+      <div class="flex justify-center mb-8 pb-6 border-b" style="border-color:var(--border)">
+        <a href="index.html" class="flex items-center gap-2">
+          <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
+          <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span
+              style="color:var(--emerald)">Market</span></span>
+        </a>
+      </div>
+      <h2 class="text-3xl font-bold text-center mb-2">Create Account</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-center mb-8">Join our sustainable community</p>
 
-                <div>
-                    <label class="block text-sm font-medium mb-2">Email Address</label>
-                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Password</label>
-                    <input type="password" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Confirm Password</label>
-                    <input type="password" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
-                </div>
-
-                <div>
-                    <label class="flex items-start">
-                        <input type="checkbox" required class="me-2 mt-1">
-                        <span class="text-sm">I agree to the <a href="#" class="text-green-600 hover:underline">Terms of Service</a> and <a href="#" class="text-green-600 hover:underline">Privacy Policy</a></span>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-primary w-full justify-center">
-                    Create Account
-                </button>
-            </form>
-
-            <!-- Social Register -->
-            <div class="mt-8">
-                <div class="relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-4 bg-white dark:bg-gray-800 text-gray-500">Or sign up with</span>
-                    </div>
-                </div>
-
-                <div class="mt-6 grid grid-cols-2 gap-4">
-                    <button class="btn-outline justify-center py-3">
-                        <i class="fab fa-google text-red-500 me-2"></i>Google
-                    </button>
-                    <button class="btn-outline justify-center py-3">
-                        <i class="fab fa-facebook text-blue-600 me-2"></i>Facebook
-                    </button>
-                </div>
-            </div>
-
-            <p class="text-center mt-8 text-gray-600 dark:text-gray-400">
-                Already have an account? 
-                <a href="login.html" class="text-green-600 font-semibold hover:underline">Sign in</a>
-            </p>
+      <form data-validate class="space-y-6">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">First Name</label>
+            <input type="text" required
+              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Last Name</label>
+            <input type="text" required
+              class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
+          </div>
         </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Email Address</label>
+          <input type="email" required
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Password</label>
+          <input type="password" required
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Confirm Password</label>
+          <input type="password" required
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-700">
+        </div>
+
+        <div>
+          <label class="flex items-start">
+            <input type="checkbox" required class="me-2 mt-1">
+            <span class="text-sm">I agree to the <a href="#" class="text-green-600 hover:underline">Terms of Service</a>
+              and <a href="#" class="text-green-600 hover:underline">Privacy Policy</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">
+          Create Account
+        </button>
+      </form>
+
+      <!-- Social Register -->
+      <div class="mt-8">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-4 bg-white dark:bg-gray-800 text-gray-500">Or sign up with</span>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-4 mt-6">
+          <button class="btn btn-outline btn-icon w-12 h-12" title="Google">
+            <i class="fab fa-google text-red-500 text-lg"></i>
+          </button>
+          <button class="btn btn-outline btn-icon w-12 h-12" title="Apple">
+            <i class="fab fa-apple text-current text-lg"></i>
+          </button>
+          <button class="btn btn-outline btn-icon w-12 h-12" title="Facebook">
+            <i class="fab fa-facebook text-blue-600 text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-center mt-8 text-gray-600 dark:text-gray-400">
+        Already have an account?
+        <a href="login.html" class="text-green-600 font-semibold hover:underline">Sign in</a>
+      </p>
     </div>
+  </div>
 
-    <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-

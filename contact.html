@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,106 +12,107 @@
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
 <text y='50' font-size='50'>🌱</text>
 </svg>">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } } }</script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#0a4f2e', secondary: '#e8f5ee', accent: '#16a34a', forest: '#0a4f2e', emerald: '#22c55e', teal: '#14b8a6' } } } }</script>
 </head>
 
 <body class="transition-colors duration-300">
 
-    <!-- ── NAVBAR ── -->
-    <nav class="main-navbar">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-                        <i class="fas fa-leaf text-white text-lg"></i>
-                    </div>
-                    <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span
-                            style="color:var(--emerald)">Market</span></span>
-                </a>
+    <!-- -- NAVBAR -- -->
+      <nav class="main-navbar">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
+          <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
+          <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
+        </a>
 
-                <!-- Desktop Nav -->
-                <div class="hidden xl:flex items-center gap-1">
-                    <div class="dropdown relative">
-                        <button class="dropdown-trigger nav-link flex items-center gap-1">
-                            Home <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
-                            <a href="index.html"
-                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
-                                style="color:var(--text-2)"><i class="fas fa-home me-2"
-                                    style="color:var(--emerald)"></i>Home 1</a>
-                            <a href="index2.html"
-                                class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20"
-                                style="color:var(--text-2)"><i class="fas fa-home me-2"
-                                    style="color:var(--emerald)"></i>Home 2</a>
-                        </div>
-                    </div>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="shop.html" class="nav-link">Shop</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
-                    <a href="pricing.html" class="nav-link">Pricing</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                    <div class="dropdown relative">
-                        <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i
-                                class="fas fa-chevron-down text-xs"></i></button>
-                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
-                            <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)"><i
-                                    class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
-                            <a href="admin-dashboard.html" class="block px-4 py-3 text-sm"
-                                style="color:var(--text-2)"><i class="fas fa-shield-alt me-2"
-                                    style="color:var(--teal)"></i>Admin Dashboard</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Actions & Hamburger -->
-                <div class="flex items-center gap-1.5 sm:gap-3">
-                  <!-- Utilities (Always visible) -->
-                  <button id="rtlToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-[10px] font-bold border" style="border-color:var(--glass-border)" title="Toggle RTL">
-                    <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
-                  </button>
-                  <button id="darkModeToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" title="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                  </button>
-
-                  <!-- Auth (Tablet & Desktop) -->
-                  <div class="hidden md:flex items-center gap-2">
-                    <a href="login.html" class="nav-link text-sm px-4">Login</a>
-                    <a href="register.html" class="btn-primary">Sign Up</a>
-                  </div>
-
-                  <!-- Hamburger Button -->
-                  <button id="mobileMenuBtn" class="xl:hidden nav-link p-2">
-                    <i class="fas fa-bars text-xl"></i>
-                  </button>
-                </div>
+        <!-- Desktop Nav -->
+        <div class="hidden xl:flex items-center gap-1">
+          <div class="dropdown relative">
+            <button class="dropdown-trigger nav-link flex items-center gap-1">
+              Home <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
+              <a href="index.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)">Home 1</a>
+              <a href="index2.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)">Home 2</a>
             </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="mobile-menu xl:hidden">
-                <div class="py-4 px-2 space-y-1">
-                    <a href="index.html">Home 1</a>
-                    <a href="index2.html">Home 2</a>
-                    <a href="about.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="shop.html">Shop</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="pricing.html">Pricing</a>
-                    <a href="contact.html">Contact</a>
-                    <div class="pt-3 mt-3 border-t" style="border-color:var(--border)">
-                        <a href="dashboard.html"><i class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
-                        <a href="admin-dashboard.html"><i class="fas fa-shield-alt me-2" style="color:var(--teal)"></i>Admin Dashboard</a>
-                        <div class="grid grid-cols-2 gap-2 mt-3 md:hidden">
-                            <a href="login.html" class="py-2.5 rounded-lg text-center text-sm font-bold border" style="border-color:var(--border); color:var(--text)">Login</a>
-                            <a href="register.html" class="btn-primary py-2.5 text-center flex items-center justify-center">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="pricing.html" class="nav-link">Pricing</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+            <div class="dropdown relative">
+              <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i class="fas fa-chevron-down text-xs"></i></button>
+              <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
+                <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)">User Dashboard</a>
+                <a href="admin-dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)">Admin Dashboard</a>
+              </div>
             </div>
         </div>
-    </nav>
+
+        <!-- Right Actions & Hamburger -->
+        <div class="flex items-center gap-1.5 sm:gap-3">
+          <!-- Utilities (Always visible) -->
+          <button id="rtlToggle" class="btn btn-outline btn-sm" title="Toggle RTL">RTL</button>
+          <button id="darkModeToggle" class="btn btn-ghost btn-icon" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <!-- Auth (Tablet & Desktop) -->
+          <div class="hidden md:flex items-center gap-2">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+          </div>
+
+          <!-- Hamburger Button -->
+          <button id="mobileMenuBtn" class="xl:hidden nav-link p-2">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu xl:hidden">
+        <div class="py-3 px-2 space-y-1">
+          <!-- Home Accordion -->
+          <button class="mobile-accordion-trigger" data-target="mobileHomeMenu">
+            Home
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div id="mobileHomeMenu" class="mobile-accordion-body">
+            <a href="index.html">Home 1</a>
+            <a href="index2.html">Home 2</a>
+          </div>
+
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Blog</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+
+          <!-- Dashboard Accordion -->
+          <button class="mobile-accordion-trigger" data-target="mobileDashMenu">
+            Dashboard
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div id="mobileDashMenu" class="mobile-accordion-body">
+            <a href="dashboard.html">User Dashboard</a>
+            <a href="admin-dashboard.html">Admin Dashboard</a>
+          </div>
+
+          <!-- Auth Buttons -->
+          <div class="grid grid-cols-2 gap-2 pt-3 mt-2 md:hidden" style="border-top:1px solid var(--border)">
+            <a href="login.html" class="btn btn-outline text-center">Login</a>
+            <a href="register.html" class="btn btn-primary text-center">Sign Up</a>
+          </div>
+        </div>
+        </div>
+    </div>
+  </nav>
 
     <!-- HERO -->
     <section class="pt-32 pb-16 bg-gradient-hero">
@@ -128,7 +129,9 @@
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Contact Info -->
                 <div>
-                    <h2 class="text-3xl font-bold mb-8">Contact Information</h2>
+                    <span class="section-label mb-4 inline-flex"><i class="fas fa-map-marker-alt"></i> Find Us</span>
+                    <h2 class="text-3xl font-bold mb-6" style="font-family:'Fraunces',serif; color:var(--text)">Contact Information</h2>
+                    <p class="mb-8" style="color:var(--text-3)">We're a small, passionate team committed to making sustainable shopping mainstream. Reach out — every message matters to us.</p>
 
                     <div class="space-y-6 mb-8">
                         <div class="flex items-start">
@@ -138,7 +141,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1">Address</h3>
-                                <p class="text-gray-600 dark:text-gray-400">123 Sustainability Street<br>Green City, EC
+                                <p class="text-gray-600 dark:text-gray-300">123 Sustainability Street<br>Green City, EC
                                     12345</p>
                             </div>
                         </div>
@@ -150,7 +153,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1">Phone</h3>
-                                <p class="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
+                                <p class="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
                             </div>
                         </div>
 
@@ -161,7 +164,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-1">Email</h3>
-                                <p class="text-gray-600 dark:text-gray-400">hello@ecomarket.com</p>
+                                <p class="text-gray-600 dark:text-gray-300">hello@ecomarket.com</p>
                             </div>
                         </div>
                     </div>
@@ -170,22 +173,10 @@
                     <div>
                         <h3 class="font-semibold mb-4">Follow Us</h3>
                         <div class="flex gap-4">
-                            <a href="#"
-                                class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition">
-                                <i class="fab fa-facebook-f text-xl"></i>
-                            </a>
-                            <a href="#"
-                                class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                            <a href="#"
-                                class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                            <a href="#"
-                                class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition">
-                                <i class="fab fa-linkedin-in text-xl"></i>
-                            </a>
+                            <a href="#" class="btn btn-ghost btn-icon bg-gray-100 dark:bg-gray-800"><i class="fab fa-facebook-f text-xl"></i></a>
+                            <a href="#" class="btn btn-ghost btn-icon bg-gray-100 dark:bg-gray-800"><i class="fab fa-twitter text-xl"></i></a>
+                            <a href="#" class="btn btn-ghost btn-icon bg-gray-100 dark:bg-gray-800"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="btn btn-ghost btn-icon bg-gray-100 dark:bg-gray-800"><i class="fab fa-linkedin-in text-xl"></i></a>
                         </div>
                     </div>
 
@@ -199,7 +190,9 @@
 
                 <!-- Contact Form -->
                 <div>
-                    <h2 class="text-3xl font-bold mb-8">Send Us a Message</h2>
+                    <span class="section-label mb-4 inline-flex"><i class="fas fa-paper-plane"></i> Write to Us</span>
+                    <h2 class="text-3xl font-bold mb-3" id="contact-form" style="font-family:'Fraunces',serif; color:var(--text)">Send Us a Message</h2>
+                    <p class="mb-6" style="color:var(--text-3)">Whether you're a shopper, seller, sustainability advocate, or journalist — we read every message personally.</p>
                     <form data-validate class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
@@ -238,7 +231,7 @@
                                 class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-800"></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary w-full justify-center">
+                        <button type="submit" class="btn btn-primary w-full">
                             Send Message <i class="fas fa-paper-plane ms-2"></i>
                         </button>
                     </form>
@@ -251,93 +244,74 @@
     <section class="py-20 bg-gray-50 dark:bg-gray-800">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Have Questions?</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-8">Check out our FAQ section for quick answers</p>
-            <a href="#"
-                class="btn-primary">View
-                FAQ</a>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">Check out our FAQ section for quick answers</p>
+            <a href="#" class="btn btn-primary">View FAQ</a>
         </div>
     </section>
 
-    <!-- ── FOOTER ── -->
-    <footer style="background:var(--forest);color:#fff" class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <a href="index.html" class="flex items-center gap-2 mb-5">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-                            <i class="fas fa-leaf text-white text-lg"></i>
-                        </div>
-                        <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span
-                                style="color:var(--emerald)">Market</span></span>
-                    </a>
-                    <p class="text-sm mb-5" style="color:rgba(255,255,255,.6)">Your trusted marketplace for ethical and
-                        sustainable products — making the world better, one purchase at a time.</p>
-                    <div class="flex gap-3">
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-instagram text-sm"></i></a>
-                        <a href="#"
-                            class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500"
-                            style="background:rgba(255,255,255,.1)"><i class="fab fa-linkedin-in text-sm"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-5 text-white">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="about.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">About Us</a></li>
-                        <li><a href="services.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Services</a></li>
-                        <li><a href="shop.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Shop</a></li>
-                        <li><a href="blog.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Blog</a></li>
-                        <li><a href="contact.html" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-5 text-white">Customer Service</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">FAQ</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Shipping Info</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Returns</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Privacy Policy</a></li>
-                        <li><a href="#" class="text-sm transition hover:text-green-400"
-                                style="color:rgba(255,255,255,.6)">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-5 text-white">Newsletter</h4>
-                    <p class="text-sm mb-4" style="color:rgba(255,255,255,.6)">Subscribe for new products and eco-tips.
-                    </p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="Your email address"
-                            class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500"
-                            style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
-                        <button type="submit" class="btn-primary w-full justify-center">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
-                <p class="text-center text-sm" style="color:rgba(255,255,255,.5)">&copy; 2026 EcoMarket. All rights
-                    reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
-            </div>
+    <!-- -- FOOTER -- -->
+      <footer style="background:var(--forest);color:#fff" class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-5">
+            <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
+            <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span style="color:var(--emerald)">Market</span></span>
+          </a>
+          <p class="text-sm mb-5" style="color:rgba(255,255,255,.8)">Your trusted marketplace for ethical and sustainable products — making the world better, one purchase at a time.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-linkedin-in text-sm"></i></a>
+          </div>
         </div>
-    </footer>
+        <div>
+          <h4 class="font-bold mb-5 text-white">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">About Us</a></li>
+            <li><a href="services.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Services</a></li>
+            <li><a href="shop.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Shop</a></li>
+            <li><a href="blog.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Blog</a></li>
+            <li><a href="contact.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-5 text-white">Customer Service</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">FAQ</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Shipping Info</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Returns</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Privacy Policy</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-5 text-white">Newsletter</h4>
+          <p class="text-sm mb-4" style="color:rgba(255,255,255,.8)">Subscribe for new products and eco-tips.</p>
+          <form class="space-y-3">
+            <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
+            <button type="submit" class="btn btn-accent w-full mt-2">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
+        <p class="text-center text-sm" style="color:rgba(255,255,255,.7)">&copy; 2026 EcoMarket. All rights reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
+      </div>
+    </div>
+  </footer>
 
 
     <script src="assets/js/main.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+

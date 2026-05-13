@@ -9,10 +9,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script>
+    <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: { extend: { colors: { primary: '#10b981', secondary: '#059669' } } }
+      theme: { extend: { colors: { primary: '#0a4f2e', secondary: '#e8f5ee', accent: '#16a34a', forest: '#0a4f2e', emerald: '#22c55e', teal: '#14b8a6' } } }
     }
   </script>
 </head>
@@ -24,9 +24,7 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2 flex-shrink-0">
-          <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-            <i class="fas fa-leaf text-white text-lg"></i>
-          </div>
+          <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
           <span class="text-xl font-bold" style="font-family:'Fraunces',serif; color:var(--text)">Eco<span style="color:var(--emerald)">Market</span></span>
         </a>
 
@@ -37,8 +35,8 @@
               Home <i class="fas fa-chevron-down text-xs"></i>
             </button>
             <div class="dropdown-menu absolute top-full left-0 mt-2 w-44 rounded-xl overflow-hidden">
-              <a href="index.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)"><i class="fas fa-home me-2" style="color:var(--emerald)"></i>Home 1</a>
-              <a href="index2.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)"><i class="fas fa-home me-2" style="color:var(--emerald)"></i>Home 2</a>
+              <a href="index.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)">Home 1</a>
+              <a href="index2.html" class="block px-4 py-3 text-sm hover:bg-green-50 dark:hover:bg-green-900/20" style="color:var(--text-2)">Home 2</a>
             </div>
           </div>
           <a href="about.html" class="nav-link">About</a>
@@ -50,8 +48,8 @@
             <div class="dropdown relative">
               <button class="dropdown-trigger nav-link flex items-center gap-1">Dashboard <i class="fas fa-chevron-down text-xs"></i></button>
               <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl overflow-hidden">
-                <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)"><i class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
-                <a href="admin-dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)"><i class="fas fa-shield-alt me-2" style="color:var(--teal)"></i>Admin Dashboard</a>
+                <a href="dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)">User Dashboard</a>
+                <a href="admin-dashboard.html" class="block px-4 py-3 text-sm" style="color:var(--text-2)">Admin Dashboard</a>
               </div>
             </div>
         </div>
@@ -59,17 +57,15 @@
         <!-- Right Actions & Hamburger -->
         <div class="flex items-center gap-1.5 sm:gap-3">
           <!-- Utilities (Always visible) -->
-          <button id="rtlToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-auto sm:px-3 sm:h-9 rounded-full text-[10px] font-bold border" style="border-color:var(--glass-border)" title="Toggle RTL">
-            <i class="fas fa-globe sm:me-1"></i><span class="hidden sm:inline">RTL</span>
-          </button>
-          <button id="darkModeToggle" class="nav-link flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full" title="Toggle Dark Mode">
+          <button id="rtlToggle" class="btn btn-outline btn-sm" title="Toggle RTL">RTL</button>
+          <button id="darkModeToggle" class="btn btn-ghost btn-icon" title="Toggle Dark Mode">
             <i class="fas fa-moon"></i>
           </button>
 
           <!-- Auth (Tablet & Desktop) -->
           <div class="hidden md:flex items-center gap-2">
-            <a href="login.html" class="nav-link text-sm px-4">Login</a>
-            <a href="register.html" class="btn-primary">Sign Up</a>
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
           </div>
 
           <!-- Hamburger Button -->
@@ -81,22 +77,38 @@
 
       <!-- Mobile Menu -->
       <div id="mobileMenu" class="mobile-menu xl:hidden">
-        <div class="py-4 px-2 space-y-1">
-          <a href="index.html">Home 1</a>
-          <a href="index2.html">Home 2</a>
+        <div class="py-3 px-2 space-y-1">
+          <!-- Home Accordion -->
+          <button class="mobile-accordion-trigger" data-target="mobileHomeMenu">
+            Home
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div id="mobileHomeMenu" class="mobile-accordion-body">
+            <a href="index.html">Home 1</a>
+            <a href="index2.html">Home 2</a>
+          </div>
+
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="shop.html">Shop</a>
           <a href="blog.html">Blog</a>
           <a href="pricing.html">Pricing</a>
           <a href="contact.html">Contact</a>
-          <div class="pt-3 mt-3 border-t" style="border-color:var(--border)">
-            <a href="dashboard.html"><i class="fas fa-user me-2" style="color:var(--emerald)"></i>User Dashboard</a>
-            <a href="admin-dashboard.html"><i class="fas fa-shield-alt me-2" style="color:var(--teal)"></i>Admin Dashboard</a>
-            <div class="grid grid-cols-2 gap-2 mt-3 md:hidden">
-              <a href="login.html" class="py-2.5 rounded-lg text-center text-sm font-bold border" style="border-color:var(--border); color:var(--text)">Login</a>
-              <a href="register.html" class="btn-primary py-2.5 text-center flex items-center justify-center">Sign Up</a>
-            </div>
+
+          <!-- Dashboard Accordion -->
+          <button class="mobile-accordion-trigger" data-target="mobileDashMenu">
+            Dashboard
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div id="mobileDashMenu" class="mobile-accordion-body">
+            <a href="dashboard.html">User Dashboard</a>
+            <a href="admin-dashboard.html">Admin Dashboard</a>
+          </div>
+
+          <!-- Auth Buttons -->
+          <div class="grid grid-cols-2 gap-2 pt-3 mt-2 md:hidden" style="border-top:1px solid var(--border)">
+            <a href="login.html" class="btn btn-outline text-center">Login</a>
+            <a href="register.html" class="btn btn-primary text-center">Sign Up</a>
           </div>
         </div>
       </div>
@@ -108,7 +120,7 @@
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&fit=crop" class="w-full h-full object-cover" alt="Background">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-black/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
     </div>
     <div class="container mx-auto px-4 relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -124,8 +136,8 @@
             Discover eco-friendly products and services that make a real difference. Join thousands of conscious consumers building a greener future.
           </p>
           <div class="flex flex-wrap gap-4 mb-12">
-            <a href="shop.html" class="btn-primary"><i class="fas fa-shopping-bag"></i> Shop Sustainable</a>
-            <a href="services.html" class="btn-outline">Explore Services</a>
+            <a href="shop.html" class="btn btn-accent btn-lg"><i class="fas fa-shopping-bag"></i> Shop Sustainable</a>
+            <a href="services.html" class="btn btn-outline-white btn-lg">Explore Services</a>
           </div>
           <!-- Stats -->
           <div class="grid grid-cols-3 gap-6">
@@ -159,7 +171,7 @@
           </div>
           <!-- Floating tag -->
           <div class="hero-badge absolute top-6 right-0 lg:top-8 lg:right-0" style="max-width:180px">
-            <div class="badge-icon" style="background:linear-gradient(135deg,var(--teal),var(--forest))"><i class="fas fa-leaf"></i></div>
+            <div class="badge-icon" style="background:var(--teal)"><i class="fas fa-leaf"></i></div>
             <div>
               <div class="badge-title">Carbon Neutral</div>
               <div class="badge-sub">Zero emissions</div>
@@ -198,6 +210,98 @@
     </div>
   </section>
 
+  <!-- ── ETHICAL SOURCING PLEDGE ── -->
+  <section class="py-20 relative overflow-hidden" style="background:var(--bg-3)">
+    <div class="absolute inset-0 opacity-5" style="background:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&fit=crop') center/cover no-repeat"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left Content -->
+        <div class="animate-fade-in-up">
+          <span class="section-label"><i class="fas fa-handshake"></i> Our Sourcing Pledge</span>
+          <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-6" style="font-family:'Fraunces',serif; color:var(--text)">
+            Every Product, <span style="color:var(--accent)">Ethically Sourced</span>
+          </h2>
+          <p class="text-lg mb-6" style="color:var(--text-3)">
+            We don't just list products — we vet every single one. Our rigorous 12-point ethical sourcing framework ensures that what you buy genuinely protects people and the planet.
+          </p>
+          <p class="mb-8" style="color:var(--text-3)">
+            From raw material origins to fair-wage manufacturing and carbon-neutral delivery, we trace every step of the supply chain so you don't have to.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,.15)"><i class="fas fa-check text-sm" style="color:var(--accent)"></i></div>
+              <div>
+                <div class="font-semibold text-sm" style="color:var(--text)">Verified Suppliers</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-3)">Annual on-site audits</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,.15)"><i class="fas fa-check text-sm" style="color:var(--accent)"></i></div>
+              <div>
+                <div class="font-semibold text-sm" style="color:var(--text)">Living Wages</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-3)">All workers paid fairly</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,.15)"><i class="fas fa-check text-sm" style="color:var(--accent)"></i></div>
+              <div>
+                <div class="font-semibold text-sm" style="color:var(--text)">Zero Deforestation</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-3)">FSC-certified materials only</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(34,197,94,.15)"><i class="fas fa-check text-sm" style="color:var(--accent)"></i></div>
+              <div>
+                <div class="font-semibold text-sm" style="color:var(--text)">Transparent Pricing</div>
+                <div class="text-xs mt-0.5" style="color:var(--text-3)">Full cost breakdown shown</div>
+              </div>
+            </div>
+          </div>
+          <a href="services.html" class="btn btn-primary"><i class="fas fa-search"></i> See Our Vetting Process</a>
+        </div>
+        <!-- Right: Sourcing steps -->
+        <div class="space-y-4 animate-fade-in delay-2">
+          <div class="glass-card p-6 flex items-center gap-5 group hover:border-accent transition-all">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 transition-transform group-hover:scale-110" style="background:rgba(var(--accent-rgb),.15)">
+              <i class="fas fa-seedling" style="color:var(--accent)"></i>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:var(--text)">Step 1: Origins Matter</div>
+              <p class="text-sm" style="color:var(--text-3)">We trace raw materials back to their source — forests, farms, and factories — verifying environmental and social practices at every point.</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 flex items-center gap-5 group hover:border-accent transition-all">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 transition-transform group-hover:scale-110" style="background:rgba(var(--primary-rgb),.15)">
+              <i class="fas fa-industry" style="color:var(--primary-light)"></i>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:var(--text)">Step 2: Ethical Manufacturing</div>
+              <p class="text-sm" style="color:var(--text-3)">Certified factories with safe working conditions, fair pay, and renewable energy commitments. No exceptions.</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 flex items-center gap-5 group hover:border-accent transition-all">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 transition-transform group-hover:scale-110" style="background:rgba(var(--accent-rgb),.15)">
+              <i class="fas fa-truck" style="color:var(--teal)"></i>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:var(--text)">Step 3: Green Delivery</div>
+              <p class="text-sm" style="color:var(--text-3)">Carbon-offset shipping with biodegradable packaging. Every order arrives with zero net carbon footprint.</p>
+            </div>
+          </div>
+          <div class="glass-card p-6 flex items-center gap-5 group hover:border-accent transition-all">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl flex-shrink-0 transition-transform group-hover:scale-110" style="background:rgba(217,119,6,.15)">
+              <i class="fas fa-redo" style="color:#d97706"></i>
+            </div>
+            <div>
+              <div class="font-bold mb-1" style="color:var(--text)">Step 4: Circular End-of-Life</div>
+              <p class="text-sm" style="color:var(--text-3)">We partner with recycling programs so your products never end up in landfill. Return, recycle, repeat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── FEATURED PRODUCTS ── -->
   <section class="py-20" style="background:var(--bg-3)">
     <div class="container mx-auto px-4">
@@ -206,66 +310,66 @@
           <span class="section-label"><i class="fas fa-star"></i> Handpicked</span>
           <h2 class="text-4xl font-bold mt-3" style="color:var(--text)">Featured Products</h2>
         </div>
-        <a href="shop.html" class="btn-outline">View All <i class="fas fa-arrow-right ms-1"></i></a>
+        <a href="shop.html" class="btn btn-outline btn-sm">View All <i class="fas fa-arrow-right ms-1"></i></a>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Card 1 -->
-        <div class="card-hover overflow-hidden">
+        <div class="card-hover overflow-hidden flex flex-col h-full">
           <div class="relative">
             <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=400&h=300&fit=crop" alt="Organic Cotton Tote Bag" class="w-full h-56 object-cover">
             <div class="absolute top-3 right-3"><span class="badge-eco">Eco-Friendly</span></div>
           </div>
-          <div class="p-5">
+          <div class="p-5 flex flex-col flex-grow">
             <h3 class="font-semibold text-base mb-2" style="color:var(--text)">Organic Cotton Tote Bag</h3>
             <div class="flex text-yellow-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="ms-2" style="color:var(--text-3)">(4.5)</span></div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center mt-auto">
               <span class="text-xl font-bold" style="color:var(--emerald)">$24.99</span>
-              <button class="btn-primary"><i class="fas fa-cart-plus"></i></button>
+              <button class="btn btn-primary btn-icon btn-sm"><i class="fas fa-cart-plus"></i></button>
             </div>
           </div>
         </div>
         <!-- Card 2 -->
-        <div class="card-hover overflow-hidden">
+        <div class="card-hover overflow-hidden flex flex-col h-full">
           <div class="relative">
             <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=400&h=300&fit=crop" alt="Recycled Glass Bottle" class="w-full h-56 object-cover">
             <div class="absolute top-3 right-3"><span class="badge-recycled">Recycled</span></div>
           </div>
-          <div class="p-5">
+          <div class="p-5 flex flex-col flex-grow">
             <h3 class="font-semibold text-base mb-2" style="color:var(--text)">Recycled Glass Bottle Set</h3>
             <div class="flex text-yellow-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ms-2" style="color:var(--text-3)">(5.0)</span></div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center mt-auto">
               <span class="text-xl font-bold" style="color:var(--emerald)">$34.99</span>
-              <button class="btn-primary"><i class="fas fa-cart-plus"></i></button>
+              <button class="btn btn-primary btn-icon btn-sm"><i class="fas fa-cart-plus"></i></button>
             </div>
           </div>
         </div>
         <!-- Card 3 -->
-        <div class="card-hover overflow-hidden">
+        <div class="card-hover overflow-hidden flex flex-col h-full">
           <div class="relative">
             <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop" alt="Bamboo Cutlery" class="w-full h-56 object-cover">
             <div class="absolute top-3 right-3"><span class="badge-fair-trade">Fair Trade</span></div>
           </div>
-          <div class="p-5">
+          <div class="p-5 flex flex-col flex-grow">
             <h3 class="font-semibold text-base mb-2" style="color:var(--text)">Bamboo Cutlery Set</h3>
             <div class="flex text-yellow-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span class="ms-2" style="color:var(--text-3)">(4.0)</span></div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center mt-auto">
               <span class="text-xl font-bold" style="color:var(--emerald)">$19.99</span>
-              <button class="btn-primary"><i class="fas fa-cart-plus"></i></button>
+              <button class="btn btn-primary btn-icon btn-sm"><i class="fas fa-cart-plus"></i></button>
             </div>
           </div>
         </div>
         <!-- Card 4 -->
-        <div class="card-hover overflow-hidden">
+        <div class="card-hover overflow-hidden flex flex-col h-full">
           <div class="relative">
             <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop" alt="Natural Skincare" class="w-full h-56 object-cover">
             <div class="absolute top-3 right-3"><span class="badge-eco">Eco-Friendly</span></div>
           </div>
-          <div class="p-5">
+          <div class="p-5 flex flex-col flex-grow">
             <h3 class="font-semibold text-base mb-2" style="color:var(--text)">Natural Skincare Kit</h3>
             <div class="flex text-yellow-400 text-xs mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ms-2" style="color:var(--text-3)">(4.8)</span></div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center mt-auto">
               <span class="text-xl font-bold" style="color:var(--emerald)">$49.99</span>
-              <button class="btn-primary"><i class="fas fa-cart-plus"></i></button>
+              <button class="btn btn-primary btn-icon btn-sm"><i class="fas fa-cart-plus"></i></button>
             </div>
           </div>
         </div>
@@ -282,10 +386,10 @@
         <p style="color:var(--text-3)">Real stories from real people making a difference.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="testimonial-card">
-          <div class="flex text-yellow-400 mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="testimonial-card h-full">
+          <div class="flex justify-center text-yellow-400 mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <p class="mb-6">"Amazing selection of eco-friendly products! The quality is outstanding and I love knowing my purchases support sustainable practices."</p>
-          <div class="flex items-center gap-3">
+          <div class="flex flex-col items-center gap-3">
             <img src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=10b981&color=fff" alt="Sarah Johnson" class="w-11 h-11 rounded-full">
             <div>
               <div class="font-semibold text-sm" style="color:var(--text)">Sarah Johnson</div>
@@ -293,10 +397,10 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="flex text-yellow-400 mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="testimonial-card h-full">
+          <div class="flex justify-center text-yellow-400 mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <p class="mb-6">"The transparency about product sourcing and environmental impact is refreshing. This is how shopping should be!"</p>
-          <div class="flex items-center gap-3">
+          <div class="flex flex-col items-center gap-3">
             <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=14b8a6&color=fff" alt="Michael Chen" class="w-11 h-11 rounded-full">
             <div>
               <div class="font-semibold text-sm" style="color:var(--text)">Michael Chen</div>
@@ -304,15 +408,108 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="flex text-yellow-400 mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="testimonial-card h-full">
+          <div class="flex justify-center text-yellow-400 mb-4 text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
           <p class="mb-6">"Great customer service and fast shipping. The carbon footprint tracker helps me make better choices every day."</p>
-          <div class="flex items-center gap-3">
+          <div class="flex flex-col items-center gap-3">
             <img src="https://ui-avatars.com/api/?name=Emma+Williams&background=059669&color=fff" alt="Emma Williams" class="w-11 h-11 rounded-full">
             <div>
               <div class="font-semibold text-sm" style="color:var(--text)">Emma Williams</div>
               <div class="text-xs" style="color:var(--text-3)">Verified Buyer</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY ECOMARKET ── -->
+  <section class="py-24" style="background:var(--bg-2)">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 animate-fade-in-up">
+        <span class="section-label"><i class="fas fa-star"></i> Why We're Different</span>
+        <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-4" style="font-family:'Fraunces',serif; color:var(--text)">The EcoMarket Difference</h2>
+        <p class="max-w-2xl mx-auto text-lg" style="color:var(--text-3)">We're not just another marketplace. We're a movement — built on radical transparency, genuine environmental accountability, and community-first values.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-card p-8 group hover:border-accent transition-all duration-300 animate-fade-in-up delay-1">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3" style="background:rgba(34,197,94,.12)">
+            <i class="fas fa-eye" style="color:var(--accent)"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color:var(--text)">Radical Transparency</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-3)">We publish every supplier's audit report, carbon footprint, and wage data — publicly. You always know exactly where your money goes and who benefits from it.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="glass-card p-8 group hover:border-accent transition-all duration-300 animate-fade-in-up delay-2">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3" style="background:rgba(10,79,46,.10)">
+            <i class="fas fa-chart-bar" style="color:var(--primary-light)"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color:var(--text)">Personal Impact Dashboard</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-3)">Track the real-world impact of every purchase: trees planted, CO₂ offset, water saved, and artisans supported — all aggregated in your personal eco-impact account.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="glass-card p-8 group hover:border-accent transition-all duration-300 animate-fade-in-up delay-3">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3" style="background:rgba(20,184,166,.12)">
+            <i class="fas fa-certificate" style="color:var(--teal)"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color:var(--text)">Independent Certification</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-3)">Every product is independently assessed by B-Corp, Fair Trade USA, Rainforest Alliance, or equivalent third-party certifiers — not just self-reported claims.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="glass-card p-8 group hover:border-accent transition-all duration-300 animate-fade-in-up delay-1">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3" style="background:rgba(34,197,94,.12)">
+            <i class="fas fa-users" style="color:var(--accent)"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color:var(--text)">Community-First Commerce</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-3)">1% of every sale funds community sustainability projects — from village solar grids in rural India to ocean plastic cleanup programs in Southeast Asia.</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="glass-card p-8 group hover:border-accent transition-all duration-300 animate-fade-in-up delay-2">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3" style="background:rgba(10,79,46,.10)">
+            <i class="fas fa-graduation-cap" style="color:var(--primary-light)"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color:var(--text)">Sustainability Education</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-3)">Free access to our EcoAcademy — 200+ courses, webinars, and guides on living sustainably, reducing your footprint, and advocating for climate action.</p>
+        </div>
+        <!-- Card 6 -->
+        <div class="glass-card p-8 group hover:border-accent transition-all duration-300 animate-fade-in-up delay-3">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3" style="background:rgba(20,184,166,.12)">
+            <i class="fas fa-box-open" style="color:var(--teal)"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3" style="color:var(--text)">Zero-Waste Packaging</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-3)">All orders ship in 100% plastic-free, compostable packaging. We've eliminated over 2.4 tonnes of plastic packaging since 2022 — and we're just getting started.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2030 VISION BANNER ── -->
+  <section class="py-16 relative overflow-hidden" style="background:var(--primary)">
+    <div class="absolute inset-0 opacity-10" style="background:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&fit=crop') center/cover"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid lg:grid-cols-5 gap-8 items-center">
+        <div class="lg:col-span-3">
+          <span class="section-label" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff"><i class="fas fa-bullseye"></i> Our 2030 Commitment</span>
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mt-4 mb-4" style="font-family:'Fraunces',serif">Planet Positive by 2030</h2>
+          <p class="text-white/85 text-lg mb-0">We've committed to being a fully carbon-negative, zero-waste, and 100% renewable-energy-powered platform by 2030. Every product sold, every seller onboarded, and every partnership formed is measured against this goal.</p>
+        </div>
+        <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+          <div class="glass-card p-5 text-center" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)">
+            <div class="text-3xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">100%</div>
+            <div class="text-xs" style="color:rgba(255,255,255,.8)">Renewable Energy<br>Target by 2027</div>
+          </div>
+          <div class="glass-card p-5 text-center" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)">
+            <div class="text-3xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">Net −0</div>
+            <div class="text-xs" style="color:rgba(255,255,255,.8)">Carbon Negative<br>Operations by 2028</div>
+          </div>
+          <div class="glass-card p-5 text-center" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)">
+            <div class="text-3xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">1M+</div>
+            <div class="text-xs" style="color:rgba(255,255,255,.8)">Trees to Plant<br>by 2030</div>
+          </div>
+          <div class="glass-card p-5 text-center" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)">
+            <div class="text-3xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">Zero</div>
+            <div class="text-xs" style="color:rgba(255,255,255,.8)">Plastic Packaging<br>by 2025</div>
           </div>
         </div>
       </div>
@@ -329,10 +526,10 @@
       </div>
       <div class="grid md:grid-cols-3 gap-8 relative">
         <!-- Connector line (desktop) -->
-        <div class="hidden md:block absolute top-14 left-1/4 right-1/4 h-0.5" style="background:linear-gradient(90deg,var(--accent),var(--primary));opacity:.25"></div>
+        <div class="hidden md:block absolute top-14 left-1/4 right-1/4 h-0.5" style="background:var(--accent);opacity:.25"></div>
         <!-- Step 1 -->
         <div class="glass-card p-8 text-center animate-fade-in-up delay-1">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl text-white animate-pulse-acc" style="background:linear-gradient(135deg,var(--accent),var(--accent-dark));box-shadow:0 8px 25px rgba(34,197,94,.35)">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl text-white animate-pulse-acc" style="background:var(--accent);box-shadow:0 8px 25px rgba(34,197,94,.35)">
             <i class="fas fa-search"></i>
           </div>
           <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--accent)">Step 01</div>
@@ -341,7 +538,7 @@
         </div>
         <!-- Step 2 -->
         <div class="glass-card p-8 text-center animate-fade-in-up delay-2">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl text-white" style="background:linear-gradient(135deg,var(--primary-light),var(--primary));box-shadow:0 8px 25px rgba(10,79,46,.35)">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl text-white" style="background:var(--primary);box-shadow:0 8px 25px rgba(10,79,46,.35)">
             <i class="fas fa-shield-alt"></i>
           </div>
           <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--accent)">Step 02</div>
@@ -350,7 +547,7 @@
         </div>
         <!-- Step 3 -->
         <div class="glass-card p-8 text-center animate-fade-in-up delay-3">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl text-white" style="background:linear-gradient(135deg,#16a34a,#0a4f2e);box-shadow:0 8px 25px rgba(22,163,74,.35)">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl text-white" style="background:var(--accent);box-shadow:0 8px 25px rgba(22,163,74,.35)">
             <i class="fas fa-tree"></i>
           </div>
           <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--accent)">Step 03</div>
@@ -369,8 +566,8 @@
     <div class="container mx-auto px-4 relative z-10">
       <div class="text-center mb-14 animate-fade-in-up">
         <span class="section-label" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff"><i class="fas fa-globe-americas"></i> Real Impact</span>
-        <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-3 text-white">Our Collective Impact</h2>
-        <p class="max-w-xl mx-auto" style="color:rgba(255,255,255,.70)">Together, our community of conscious shoppers is creating measurable change for the planet.</p>
+        <h2 class="text-4xl lg:text-5xl font-bold mt-4 mb-3 text-white" style="color:white !important">Our Collective Impact</h2>
+        <p class="max-w-xl mx-auto" style="color:rgba(255,255,255,.9)">Together, our community of conscious shoppers is creating measurable change for the planet.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="text-center glass-card p-8" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)">
@@ -378,7 +575,7 @@
             <i class="fas fa-tree" style="color:#86efac"></i>
           </div>
           <div class="text-4xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">50K+</div>
-          <div class="text-sm" style="color:rgba(255,255,255,.60)">Trees Planted</div>
+          <div class="text-sm" style="color:rgba(255,255,255,.85)">Trees Planted</div>
           <div class="mt-3 h-1 rounded-full mx-4" style="background:rgba(255,255,255,.10)">
             <div class="h-1 rounded-full w-4/5" style="background:var(--accent-light)"></div>
           </div>
@@ -388,7 +585,7 @@
             <i class="fas fa-cloud" style="color:#86efac"></i>
           </div>
           <div class="text-4xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">120T</div>
-          <div class="text-sm" style="color:rgba(255,255,255,.60)">CO₂ Offset (tonnes)</div>
+          <div class="text-sm" style="color:rgba(255,255,255,.85)">CO₂ Offset (tonnes)</div>
           <div class="mt-3 h-1 rounded-full mx-4" style="background:rgba(255,255,255,.10)">
             <div class="h-1 rounded-full w-3/5" style="background:var(--accent-light)"></div>
           </div>
@@ -398,7 +595,7 @@
             <i class="fas fa-recycle" style="color:#86efac"></i>
           </div>
           <div class="text-4xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">8.5T</div>
-          <div class="text-sm" style="color:rgba(255,255,255,.60)">Plastic Diverted (kg)</div>
+          <div class="text-sm" style="color:rgba(255,255,255,.85)">Plastic Diverted (kg)</div>
           <div class="mt-3 h-1 rounded-full mx-4" style="background:rgba(255,255,255,.10)">
             <div class="h-1 rounded-full w-2/3" style="background:var(--accent-light)"></div>
           </div>
@@ -408,7 +605,7 @@
             <i class="fas fa-hands-helping" style="color:#86efac"></i>
           </div>
           <div class="text-4xl font-bold text-white mb-1" style="font-family:'Fraunces',serif">3.2K</div>
-          <div class="text-sm" style="color:rgba(255,255,255,.60)">Artisans Supported</div>
+          <div class="text-sm" style="color:rgba(255,255,255,.85)">Artisans Supported</div>
           <div class="mt-3 h-1 rounded-full mx-4" style="background:rgba(255,255,255,.10)">
             <div class="h-1 rounded-full w-4/5" style="background:var(--accent-light)"></div>
           </div>
@@ -492,13 +689,13 @@
     <div class="absolute inset-0 opacity-10" style="background:url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&fit=crop') center/cover no-repeat"></div>
     <div class="container mx-auto px-4 text-center relative z-10">
       <span class="section-label" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff"><i class="fas fa-rocket"></i> Join the Movement</span>
-      <h2 class="text-4xl lg:text-5xl font-bold text-white mt-6 mb-4">Ready to Make a Difference?</h2>
-      <p class="text-white/80 text-lg mb-10 max-w-2xl mx-auto">Join our community of conscious consumers and start your sustainable journey today.</p>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mt-6 mb-4" style="color:white !important">Ready to Make a Difference?</h2>
+      <p class="text-white/95 text-lg mb-10 max-w-2xl mx-auto">Join our community of conscious consumers and start your sustainable journey today.</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="register.html" class="btn-primary" style="background:white;color:var(--primary) !important;box-shadow:0 4px 20px rgba(0,0,0,.2)">
+        <a href="register.html" class="btn btn-secondary btn-lg">
           <i class="fas fa-user-plus"></i> Get Started Free
         </a>
-        <a href="contact.html" class="btn-outline" style="border-color:rgba(255,255,255,.5);color:white !important">
+        <a href="contact.html" class="btn btn-outline-white btn-lg">
           Contact Us
         </a>
       </div>
@@ -511,12 +708,10 @@
       <div class="grid md:grid-cols-4 gap-8 mb-12">
         <div>
           <a href="index.html" class="flex items-center gap-2 mb-5">
-            <div class="w-10 h-10 rounded-xl bg-gradient-green flex items-center justify-center shadow-md">
-              <i class="fas fa-leaf text-white text-lg"></i>
-            </div>
+            <i class="fas fa-leaf text-2xl" style="color:var(--emerald)"></i>
             <span class="text-xl font-bold" style="font-family:'Fraunces',serif">Eco<span style="color:var(--emerald)">Market</span></span>
           </a>
-          <p class="text-sm mb-5" style="color:rgba(255,255,255,.6)">Your trusted marketplace for ethical and sustainable products — making the world better, one purchase at a time.</p>
+          <p class="text-sm mb-5" style="color:rgba(255,255,255,.8)">Your trusted marketplace for ethical and sustainable products — making the world better, one purchase at a time.</p>
           <div class="flex gap-3">
             <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-facebook-f text-sm"></i></a>
             <a href="#" class="w-9 h-9 rounded-lg flex items-center justify-center transition hover:bg-green-500" style="background:rgba(255,255,255,.1)"><i class="fab fa-twitter text-sm"></i></a>
@@ -527,34 +722,34 @@
         <div>
           <h4 class="font-bold mb-5 text-white">Quick Links</h4>
           <ul class="space-y-3">
-            <li><a href="about.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">About Us</a></li>
-            <li><a href="services.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Services</a></li>
-            <li><a href="shop.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Shop</a></li>
-            <li><a href="blog.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Blog</a></li>
-            <li><a href="contact.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Contact</a></li>
+            <li><a href="about.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">About Us</a></li>
+            <li><a href="services.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Services</a></li>
+            <li><a href="shop.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Shop</a></li>
+            <li><a href="blog.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Blog</a></li>
+            <li><a href="contact.html" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Contact</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-bold mb-5 text-white">Customer Service</h4>
           <ul class="space-y-3">
-            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">FAQ</a></li>
-            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Shipping Info</a></li>
-            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Returns</a></li>
-            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Privacy Policy</a></li>
-            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.6)">Terms of Service</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">FAQ</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Shipping Info</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Returns</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Privacy Policy</a></li>
+            <li><a href="#" class="text-sm transition hover:text-green-400" style="color:rgba(255,255,255,.8)">Terms of Service</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-bold mb-5 text-white">Newsletter</h4>
-          <p class="text-sm mb-4" style="color:rgba(255,255,255,.6)">Subscribe for new products and eco-tips.</p>
+          <p class="text-sm mb-4" style="color:rgba(255,255,255,.8)">Subscribe for new products and eco-tips.</p>
           <form class="space-y-3">
             <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-lg text-sm outline-none focus:ring-2 focus:ring-green-500" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff">
-            <button type="submit" class="btn-primary w-full justify-center mt-auto">Subscribe</button>
+            <button type="submit" class="btn btn-accent w-full mt-2">Subscribe</button>
           </form>
         </div>
       </div>
       <div class="pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
-        <p class="text-center text-sm" style="color:rgba(255,255,255,.5)">&copy; 2026 EcoMarket. All rights reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
+        <p class="text-center text-sm" style="color:rgba(255,255,255,.7)">&copy; 2026 EcoMarket. All rights reserved. Made with <i class="fas fa-heart text-green-400"></i> for the planet.</p>
       </div>
     </div>
   </footer>
@@ -562,6 +757,15 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
