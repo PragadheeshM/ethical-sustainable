@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -129,6 +129,12 @@
             <div class="grid lg:grid-cols-4 gap-8">
                 <!-- Main Content -->
                 <div class="lg:col-span-3">
+                    <!-- Search Widget (Mobile & Tablet only) -->
+                    <div class="lg:hidden mb-8 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md">
+                        <input type="text" placeholder="Search articles..."
+                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-800">
+                    </div>
+
                     <div class="grid md:grid-cols-2 gap-8">
                         <!-- Blog Post 1 -->
                         <article class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md card-hover">
@@ -234,7 +240,7 @@
                     </div>
 
                     <!-- Search -->
-                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md mb-6">
+                    <div class="hidden lg:block bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md mb-6">
                         <input type="text" placeholder="Search articles..."
                             class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-green-500 bg-white dark:bg-gray-800">
                     </div>
