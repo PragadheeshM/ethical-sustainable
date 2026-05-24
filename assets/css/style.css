@@ -804,12 +804,12 @@ section.bg-gradient-hero {
 footer.bg-gray-900,
 footer[style*="background:var(--forest)"],
 footer[style*="background:var(--primary)"] {
-  background:var(--primary) !important;
+  background:var(--forest) !important;
 }
 
 /* ── FOOTER — always dark bg, always white text ── */
 footer {
-  background:var(--primary) !important;
+  background:var(--forest) !important;
   color:#ffffff !important;
 }
 footer h4,
@@ -870,6 +870,10 @@ footer .fas.fa-heart {
 /* Footer logo: keep "Market" accent-colored span bright */
 footer span[style*="color:var(--emerald)"],
 footer span[style*="color:var(--accent-light)"] {
+  color: var(--accent) !important;
+}
+/* Footer logo: leaf icon matches "Market" text color */
+footer .fa-leaf {
   color: var(--accent) !important;
 }
 /* Footer logo: main "Eco" part stays white */
